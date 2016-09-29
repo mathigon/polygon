@@ -1,21 +1,15 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import { AppRegistry, Text, TabBarIOS, StyleSheet, View } from 'react-native';
 
 class Polygon extends Component {
   state = {
-    selectedTab: 'redTab'
+    selectedTab: 'polygons'
   };
 
-  _renderContent(color: string, pageText: string) {
+  _renderContent(title: string) {
     return (
-      <View style={[styles.tabContent, {backgroundColor: color}]}>
-        <Text style={styles.tabText}>{pageText}</Text>
+      <View style={styles.tabContent}>
+        <Text style={styles.tabText}>{title}</Text>
       </View>
     );
   };
@@ -30,22 +24,17 @@ class Polygon extends Component {
           systemIcon="bookmarks"
           title="Polygons"
           badge="5"
-          selected={this.state.selectedTab === 'redTab'}
-          onPress={() => {
-            this.setState({ selectedTab: 'redTab' });
-          }}>
-          {this._renderContent('#783E33', 'Red Tab')}
+          selected={this.state.selectedTab === 'polygons'}
+          onPress={() => { this.setState({ selectedTab: 'polygons' }); }}>
+          {this._renderContent('Polygons')}
         </TabBarIOS.Item>
         <TabBarIOS.Item
           systemIcon="featured"
           title="Polyhedra"
-          renderAsOriginal
           title="More"
-          selected={this.state.selectedTab === 'greenTab'}
-          onPress={() => {
-            this.setState({ selectedTab: 'greenTab' });
-          }}>
-          {this._renderContent('#21551C', 'Green Tab')}
+          selected={this.state.selectedTab === 'polyhedra'}
+          onPress={() => { this.setState({ selectedTab: 'polyhedra' }); }}>
+          {this._renderContent('Polyhedra')}
         </TabBarIOS.Item>
       </TabBarIOS>
     );
@@ -56,11 +45,12 @@ var styles = StyleSheet.create({
   tabContent: {
     flex: 1,
     alignItems: 'center',
+    backgroundColor: '#00c'
   },
   tabText: {
     color: 'white',
-    margin: 50,
-  },
+    margin: 50
+  }
 });
 
 AppRegistry.registerComponent('Polygon', () => Polygon);
