@@ -1,8 +1,0 @@
-# PolygON
-
-A mobile app for discovering polygons in mathematics museums and science centers.
-
-## Development
-
-To install all dependencies, follow the instructions in https://facebook.github.io/react-native/docs/getting-started.html.
-Start using `react-native run-ios`
