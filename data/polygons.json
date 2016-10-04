@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Triangle",
+    "id": "triangle"
+  }, {
+    "name": "Square",
+    "id": "square"
+  }, {
+    "name": "Pentagon",
+    "id": "pentagon"
+  }, {
+    "name": "Hexagon",
+    "id": "hexagon"
+  }, {
+    "name": "Heptagon",
+    "id": "heptagon"
+  }, {
+    "name": "Octagon",
+    "id": "octagon"
+  }, {
+    "name": "Nonagon",
+    "id": "nonagon"
+  }, {
+    "name": "Decagon",
+    "id": "decagon"
+  }
+]
