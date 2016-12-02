@@ -1,108 +1,160 @@
 import React, { Component } from 'react';
-import { AppRegistry, Image, ListView, TouchableHighlight, Text, TabBarIOS, StyleSheet, View } from 'react-native';
+import { AppRegistry, Image, ListView, ScrollView, Navigator, TouchableHighlight, TouchableOpacity,
+  Text, TabBarIOS, StyleSheet, View } from 'react-native';
+import ScrollableTabView from 'react-native-scrollable-tab-view';
+// import Svg, { Polygon } from 'react-native-svg';
+
+const POLYGONS = require('./data/polygons.json');
+const POLYHEDRA = require('./data/polyhedra.json');
 
 
-class Polygon extends Component {
+// ----------------------------------------------------------------------------
+// Main View
+
+class PolygonGrid extends Component {
+  render() {
+    let polygons = [];
+    for (let p of POLYGONS) {
+      polygons.push(<View style={styles.shapeTile} key={p.key}>
+        <View style={styles.shapeIcon}/>
+        <Text style={styles.shapeLabel}>{p.name}s</Text>
+      </View>);
+    }
+
+    return (<ScrollView contentContainerStyle={styles.shapeView} tabLabel="Polygons">
+      <View style={styles.shapeGrid}>{polygons}</View>
+    </ScrollView>);
+  }
+}
+
+class PolyhedraGrid extends Component {
+  goToView(p) {
+    this.props.navigator.push({name: 'PolyhedronDetail', polyhedron: p});
+  }
+
+  render() {
+    let platonic = [];
+    for (let p of POLYHEDRA.platonic) {
+      platonic.push(<TouchableHighlight style={styles.shapeTile} key={p.key} onPress={() => { this.goToView(p) }}>
+        <View>
+          <View style={styles.shapeIcon}/>
+          <Text style={styles.shapeLabel}>{p.name}</Text>
+        </View>
+      </TouchableHighlight>);
+    }
+
+    return (<ScrollView contentContainerStyle={styles.shapeView} tabLabel="Polygons">
+      <Text style={styles.shapeGridTitle}>Platonic Solids</Text>
+      <View style={styles.shapeGrid}>{platonic}</View>
+      <Text style={styles.shapeGridTitle}>Archimedean Solids</Text>
+      <View style={styles.shapeGrid}/>
+    </ScrollView>);
+  }
+}
+
+class MainView extends Component {
+  render() {
+    return (
+      <ScrollableTabView tabBarPosition="bottom">
+        <PolygonGrid navigator={this.props.navigator}/>
+        <PolyhedraGrid navigator={this.props.navigator}/>
+      </ScrollableTabView>)
+  }
+}
+
+
+// ----------------------------------------------------------------------------
+// Polyhedron Detail View
+
+class PolyhedronDetailView extends Component {
+  render() {
+    return (
+      <ScrollView>
+        <Text>{this.props.polyhedron.name}</Text>
+        <TouchableHighlight onPress={() => { this.props.navigator.pop(); }}><Text>Back</Text></TouchableHighlight>
+      </ScrollView>)
+  }
+}
+
+
+// ----------------------------------------------------------------------------
+// Collection Views
+
+class CameraDetailView extends Component {
+
+}
+
+
+// ----------------------------------------------------------------------------
+// Application
+
+function renderScene(route, navigator) {
+  if (route.name == 'Main') {
+    return <MainView navigator={navigator}/>
+  }
+  if (route.name == 'PolyhedronDetail') {
+    return <PolyhedronDetailView navigator={navigator} polyhedron="{route.p}"/>
+  }
+  if (route.name == 'CameraDetail') {
+    return <CameraDetailView navigator={navigator}/>
+  }
+}
+
+class PolygonApp extends Component {
 
   constructor() {
     super();
-    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-    this.state = {
-      selectedTab: 'polygons',
-      dataSource: ds.cloneWithRows(['row 1', 'row 2', 'row 3', 'row 4', 'row 5', 'row 6', 'row 7', 'row 8'])
-    };
+    this.state = {};
   }
-
-  _renderRow(rowData: string, sectionID: number, rowID: number) {
-    var imgSource = {
-      uri: 'https://fbcdn-dragon-a.akamaihd.net/hphotos-ak-ash3/t39.1997/p128x128/851549_767334479959628_274486868_n.png'
-    };
-    return (
-        <TouchableHighlight underlayColor='rgba(0,0,0,0)'>
-          <View>
-            <View style={styles.row}>
-              <Image style={styles.thumb} source={imgSource} />
-              <Text style={styles.text}>{rowData}</Text>
-            </View>
-          </View>
-        </TouchableHighlight>
-    );
-  }
-
-  _renderContent(title: string) {
-    return (
-      <View style={styles.tabContent}>
-        <Text style={styles.tabText}>{title}</Text>
-        <ListView contentContainerStyle={styles.list}
-                  dataSource={this.state.dataSource}
-                  renderRow={this._renderRow}/>
-      </View>
-    );
-  };
 
   render() {
     return (
-      <TabBarIOS
-        unselectedTintColor="rgba(255,255,255,0.5)"
-        tintColor="white"
-        barTintColor="darkslateblue">
-        <TabBarIOS.Item
-          systemIcon="bookmarks"
-          title="Polygons"
-          badge="5"
-          selected={this.state.selectedTab === 'polygons'}
-          onPress={() => { this.setState({ selectedTab: 'polygons' }); }}>
-          {this._renderContent('Polygons')}
-        </TabBarIOS.Item>
-        <TabBarIOS.Item
-          systemIcon="featured"
-          title="Polyhedra"
-          title="More"
-          selected={this.state.selectedTab === 'polyhedra'}
-          onPress={() => { this.setState({ selectedTab: 'polyhedra' }); }}>
-          {this._renderContent('Polyhedra')}
-        </TabBarIOS.Item>
-      </TabBarIOS>
+      <Navigator style={styles.app} initialRoute={{ name: 'Main' }} renderScene={ renderScene }/>
     );
   }
 }
 
-var styles = StyleSheet.create({
-  list: {
+AppRegistry.registerComponent('Polygon', () => PolygonApp);
+
+
+
+// ----------------------------------------------------------------------------
+// Styles
+
+const styles = StyleSheet.create({
+  app: {
+    flex: 1,
+    backgroundColor: '#21C',
+  },
+  shapeView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'flex-start'
+  },
+  shapeGrid: {
     justifyContent: 'center',
     flexDirection: 'row',
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
+    flexGrow: 1
   },
-  row: {
+  shapeTile: {
     justifyContent: 'center',
     padding: 5,
     margin: 10,
     width: 100,
     height: 100,
-    backgroundColor: '#F6F6F6',
-    alignItems: 'center',
-    borderWidth: 1,
-    borderRadius: 5,
-    borderColor: '#CCC'
+    alignItems: 'center'
   },
-  thumb: {
-    width: 64,
-    height: 64
+  shapeIcon: {
+    backgroundColor: '#c00',
+    height: 60,
+    width: 60
   },
-  text: {
+  shapeLabel: {
     flex: 1,
     marginTop: 5,
-    fontWeight: 'bold'
-  },
-  tabContent: {
-    flex: 1,
-    alignItems: 'center',
-    backgroundColor: '#00c'
-  },
-  tabText: {
-    color: 'white',
-    margin: 50
+    fontWeight: 'bold',
+    color: '#fff',
+    textAlign: 'center'
   }
 });
-
-AppRegistry.registerComponent('Polygon', () => Polygon);

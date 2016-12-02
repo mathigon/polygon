@@ -1,27 +1,21 @@
 [
   {
     "name": "Triangle",
-    "id": "triangle"
+    "key": 3
   }, {
     "name": "Square",
-    "id": "square"
+    "key": 4
   }, {
     "name": "Pentagon",
-    "id": "pentagon"
+    "key": 5
   }, {
     "name": "Hexagon",
-    "id": "hexagon"
-  }, {
-    "name": "Heptagon",
-    "id": "heptagon"
+    "key": 6
   }, {
     "name": "Octagon",
-    "id": "octagon"
-  }, {
-    "name": "Nonagon",
-    "id": "nonagon"
+    "key": 8
   }, {
     "name": "Decagon",
-    "id": "decagon"
+    "key": 10
   }
 ]

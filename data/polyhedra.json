@@ -1,22 +1,22 @@
-[
-  {
-    "name": "Platonic Solids",
-    "shapes": [
-      {
-        "name": "Tetrahedron",
-        "id": "tetrahedron",
-        "description": "The tetrahedron consists of 4 triangular faces. It has 4 vertices and 6 edges.",
-        "polygons": {
-          "triangle": 4
-        }
-      }, {
-        "name": "Cube",
-        "id": "cube",
-        "description": "The cube, or hexahedron, consists of 6 quadratic faces. It has 8 vertices and 12 edges.",
-        "polygons": {
-          "square": 6
-        }
+{
+  "platonic": [
+    {
+      "name": "Tetrahedron",
+      "key": "tetrahedron",
+      "description": "The tetrahedron consists of 4 triangular faces. It has 4 vertices and 6 edges.",
+      "polygons": {
+        "triangle": 4
       }
-    ]
-  }
-]
+    }, {
+      "name": "Cube",
+      "key": "cube",
+      "description": "The cube, or hexahedron, consists of 6 quadratic faces. It has 8 vertices and 12 edges.",
+      "polygons": {
+        "square": 6
+      }
+    }
+  ],
+  "archimedean": [
+
+  ]
+}
