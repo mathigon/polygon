@@ -5,18 +5,104 @@
       "key": "tetrahedron",
       "description": "The tetrahedron consists of 4 triangular faces. It has 4 vertices and 6 edges.",
       "polygons": {
-        "triangle": 4
+        "3": 4
       }
     }, {
       "name": "Cube",
       "key": "cube",
       "description": "The cube, or hexahedron, consists of 6 quadratic faces. It has 8 vertices and 12 edges.",
       "polygons": {
-        "square": 6
+        "4": 6
+      }
+    }, {
+      "name": "Octahedron",
+      "key": "octahedron",
+      "description": "...",
+      "polygons": {
+        "3": 8
+      }
+    }, {
+      "name": "Dodecahedron",
+      "key": "dodecahedron",
+      "description": "...",
+      "polygons": {
+        "5": 12
+      }
+    }, {
+      "name": "Icosahedron",
+      "key": "icosahedron",
+      "description": "...",
+      "polygons": {
+        "3": 20
       }
     }
   ],
   "archimedean": [
-
+    {
+      "name": "Truncated Tetrahedron",
+      "key": "truncated-tetrahedron",
+      "description": "...",
+      "polygons": {}
+    }, {
+      "name": "Cuboctahedron",
+      "key": "cuboctahedron",
+      "description": "...",
+      "polygons": {}
+    }, {
+      "name": "Truncated Cube",
+      "key": "truncated-cube",
+      "description": "...",
+      "polygons": {}
+    }, {
+      "name": "Truncated Octahedron",
+      "key": "truncated-cctahedron",
+      "description": "...",
+      "polygons": {}
+    }, {
+      "name": "Rhombicuboctahedron",
+      "key": "rhombicuboctahedron",
+      "description": "...",
+      "polygons": {}
+    }, {
+      "name": "Truncated Cuboctahedron",
+      "key": "truncated-cuboctahedron",
+      "description": "...",
+      "polygons": {}
+    }, {
+      "name": "Snub Cube",
+      "key": "snub-cube",
+      "description": "...",
+      "polygons": {}
+    }, {
+      "name": "Icosidodecahedron",
+      "key": "icosidodecahedron",
+      "description": "...",
+      "polygons": {}
+    }, {
+      "name": "Truncated Dodecahedron",
+      "key": "truncated-dodecahedron",
+      "description": "...",
+      "polygons": {}
+    }, {
+      "name": "Truncated Icosahedron",
+      "key": "truncated-icosahedron",
+      "description": "...",
+      "polygons": {}
+    }, {
+      "name": "Rhombicosidodecahedron",
+      "key": "rhombicosidodecahedron",
+      "description": "...",
+      "polygons": {}
+    }, {
+      "name": "Truncated Icosidodecahedron",
+      "key": "truncated-icosidodecahedron",
+      "description": "...",
+      "polygons": {}
+    }, {
+      "name": "Snub Dodecahedron",
+      "key": "snub-dodecahedron",
+      "description": "...",
+      "polygons": {}
+    }
   ]
 }

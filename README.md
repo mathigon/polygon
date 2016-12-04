@@ -1,38 +1,38 @@
 # PolygON
 
-A mobile app for discovering polygons in mathematics museums and science centers.
+A mobile app for mathematics museums and science centers. Visitors can discover regular polygons hidden around the exhibition, and use them to generate regular polyhedra.
 
 
 ## Development
 
-To install all dependencies, follow the instructions in https://facebook.github.io/react-native/docs/getting-started.html.
-Start using `react-native run-ios`
+To install react native, follow the instructions in https://facebook.github.io/react-native/docs/getting-started.html.
+
+Install all dependencies of this app using `npm install`.
+
+Run the App in iOS simulator using `react-native run-ios`.
 
 
 ## TODO list
 
-[P1] Polygon logo
-[P1] Icons, styles, backgrounds, fonts
-[P1] SVG polygons
+[P1] Animated Polyhedron icons, Calculate which are completed
+[P1] Polyhedron detail view: SVG net, description, images
+[P1] Alert when completing a polyhedron, nicer modals
+[P1] Improve all styling, icons, logo, background
 
-[P1] Buttons to camera, share, dev add, puzzle
-[P1] Internal state of how many shapes collected (write to db)
-[P1] Camera + simple QR codes (https://github.com/lwansbrough/react-native-camera)
+[P2] Polyhedrons: lightbox, interactive 3D model, folding animation
+[P2] Swap shapes screen
+[P2] Puzzle/power up screen
 
-[P1] Simple detail screen (work out which completed)
-[P1] SVG net, description, images
-[P1] Database of polyhedra and when completed
-
-[P2] Updated app assets: icons, splash screens, etc.
-[P2] Credits screen
-[P2] Animation when collecting and completing a polyhedron
-[P2] Exchange collection screen
-[P2] 3D model + fold animation (https://itunes.apple.com/us/app/unfold/id557099803)
-
-[P4] Tutorial
-[P3] Detailed README instructions, share
+[P3] Tutorial
+[P3] About/Credits screen
 [P3] Android support
-[P3] Lightbox for images (https://github.com/oblador/react-native-lightbox)
+[P3] Code signing and App Store release
 
-[P4] Puzzle screen
+[P4] Nicer and customisable QR codes
 [P4] Geolocation -> list of nearby museums
+
+
+## Ideas
+
+https://itunes.apple.com/us/app/unfold/id557099803
+https://github.com/ProjectSeptemberInc/gl-react-native
