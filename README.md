@@ -14,15 +14,18 @@ Run the App in iOS simulator using `react-native run-ios`.
 
 ## TODO list
 
-[P1] Animated Polyhedron icons, Calculate which are completed
-[P1] Polyhedron detail view: SVG net, description, images
-[P1] Alert when completing a polyhedron, nicer modals
-[P1] Improve all styling, icons, logo, background
+[P1] Icons + Logo + Fonts + Background
+[P1] Homescreen styles cleanup
+[P1] Fallback for all Polyhedra
+[P1] Polyhedron descriptions + images
 
-[P2] Polyhedrons: lightbox, interactive 3D model, folding animation
+[P2] All Animations + Nets
+[P2] Alert when completing a polyhedron, nicer modals
+[P2] Check if modals still work
 [P2] Swap shapes screen
 [P2] Puzzle/power up screen
 
+[P3] Interactive rotations, folding animation
 [P3] Tutorial
 [P3] About/Credits screen
 [P3] Android support
@@ -31,8 +34,12 @@ Run the App in iOS simulator using `react-native run-ios`.
 [P4] Nicer and customisable QR codes
 [P4] Geolocation -> list of nearby museums
 
+try https://github.com/williamngan/react-native-sprite for performance
+
 
 ## Ideas
 
 https://itunes.apple.com/us/app/unfold/id557099803
 https://github.com/ProjectSeptemberInc/gl-react-native
+
+https://facebook.github.io/react-native/docs/gesture-responder-system.html

@@ -4,36 +4,48 @@
       "name": "Tetrahedron",
       "key": "tetrahedron",
       "description": "The tetrahedron consists of 4 triangular faces. It has 4 vertices and 6 edges.",
-      "polygons": {
-        "3": 4
+      "faces": {"3": 4},
+      "netSize": [330, 181],
+      "net": {
+        "3": ["M116,90.61l50,86.6H66Z", "M166,177.21,116,90.6H216Z", "M166,4l50,86.6H116Z", "M216,90.61l50,86.6H166Z"]
       }
     }, {
       "name": "Cube",
       "key": "cube",
       "description": "The cube, or hexahedron, consists of 6 quadratic faces. It has 8 vertices and 12 edges.",
-      "polygons": {
-        "4": 6
+      "faces": {"4": 6},
+      "netSize": [330, 196],
+      "net": {
+        "4": ["M293,66.27v63.24H229.76V66.27Z", "M166.5,129.52v63.24H103.26V129.52Z", "M166.5,3V66.25H103.26V3Z", "M166.5,66.27v63.24H103.26V66.27Z", "M229.75,66.27v63.24H166.51V66.27Z", "M103.25,66.27v63.24H40V66.27Z"]
       }
     }, {
       "name": "Octahedron",
       "key": "octahedron",
       "description": "...",
-      "polygons": {
-        "3": 8
+      "faces": {"3": 8},
+      "netSize": [330, 210],
+      "net": {
+        "3": ["M65.57,71.54l39.57,68.54H26Z", "M105.14,140.08,65.57,71.54h79.14Z", "M144.71,208.62l-39.57-68.54h79.14Z", "M144.71,71.54l39.57,68.54H105.14Z", "M184.29,140.08,144.71,71.54h79.14Z", "M184.29,3l39.57,68.54H144.71Z", "M223.86,71.54l39.57,68.54H184.29Z", "M263.43,140.08,223.86,71.54H303Z"]
       }
     }, {
       "name": "Dodecahedron",
       "key": "dodecahedron",
       "description": "...",
-      "polygons": {
+      "faces": {
         "5": 12
+      },
+      "netSize": [330, 165],
+      "net": {
+        "5": ["M263,63.83l12.23,37.64-32,23.26-32-23.26,12.23-37.64Z", "M263,63.83l12.23-37.64-32-23.26-32,23.26,12.23,37.64Z", "M275.19,101.47h39.58L327,63.83,295,40.57,263,63.83Z", "M223.38,63.83l-32-23.26-32,23.26,12.23,37.64h39.58Z", "M243.17,124.74l12.23,37.64H295l12.23-37.64-32-23.26Z", "M243.17,124.74l-12.23,37.64H191.36l-12.23-37.64,32-23.26Z", "M171.57,101.47l-32,23.26-32-23.26,12.23-37.64h39.58Z", "M107.53,101.47H68L55.72,63.83l32-23.26,32,23.26Z", "M119.76,63.83l32-23.26L139.55,2.93H100L87.74,40.57Z", "M55.72,63.83l-32-23.26L35.93,2.93H75.51L87.74,40.57Z", "M68,101.47,55.72,139.12l32,23.26,32-23.26-12.23-37.64Z", "M68,101.47l-32,23.26-32-23.26L16.14,63.83H55.72Z"]
       }
     }, {
       "name": "Icosahedron",
       "key": "icosahedron",
       "description": "...",
-      "polygons": {
-        "3": 20
+      "faces": {"3": 20},
+      "netSize": [330, 147],
+      "net": {
+        "3": []
       }
     }
   ],
@@ -42,67 +54,67 @@
       "name": "Truncated Tetrahedron",
       "key": "truncated-tetrahedron",
       "description": "...",
-      "polygons": {}
+      "faces": {"3": 4, "6": 4}
     }, {
       "name": "Cuboctahedron",
       "key": "cuboctahedron",
       "description": "...",
-      "polygons": {}
+      "faces": {"3": 8, "4": 6}
     }, {
       "name": "Truncated Cube",
       "key": "truncated-cube",
       "description": "...",
-      "polygons": {}
+      "faces": {"3": 8, "8": 6}
     }, {
       "name": "Truncated Octahedron",
-      "key": "truncated-cctahedron",
+      "key": "truncated-octahedron",
       "description": "...",
-      "polygons": {}
+      "faces": {"4": 6, "6": 8}
     }, {
       "name": "Rhombicuboctahedron",
       "key": "rhombicuboctahedron",
       "description": "...",
-      "polygons": {}
+      "faces": {"3": 8, "4": 18}
     }, {
       "name": "Truncated Cuboctahedron",
       "key": "truncated-cuboctahedron",
       "description": "...",
-      "polygons": {}
+      "faces": {"4": 12, "6": 8, "8": 6}
     }, {
       "name": "Snub Cube",
       "key": "snub-cube",
       "description": "...",
-      "polygons": {}
+      "faces": {"3": 32, "4": 6}
     }, {
       "name": "Icosidodecahedron",
       "key": "icosidodecahedron",
       "description": "...",
-      "polygons": {}
+      "faces": {"3": 20, "5": 12}
     }, {
       "name": "Truncated Dodecahedron",
       "key": "truncated-dodecahedron",
       "description": "...",
-      "polygons": {}
+      "faces": {"3": 20, "10": 12}
     }, {
       "name": "Truncated Icosahedron",
       "key": "truncated-icosahedron",
       "description": "...",
-      "polygons": {}
+      "faces": {"5": 12, "6": 20}
     }, {
       "name": "Rhombicosidodecahedron",
       "key": "rhombicosidodecahedron",
       "description": "...",
-      "polygons": {}
+      "faces": {"3": 20, "4": 30, "5": 12}
     }, {
       "name": "Truncated Icosidodecahedron",
       "key": "truncated-icosidodecahedron",
       "description": "...",
-      "polygons": {}
+      "faces": {"4": 30, "6": 20, "10": 12}
     }, {
       "name": "Snub Dodecahedron",
       "key": "snub-dodecahedron",
       "description": "...",
-      "polygons": {}
+      "faces": {"3": 80, "5": 12}
     }
   ]
 }
