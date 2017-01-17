@@ -32,17 +32,3 @@ export class PolyhedronView extends Component {
       </Image>)
   }
 }
-
-
-const styles = StyleSheet.create({
-  view: {
-    backgroundColor: '#00a',
-    flex: 1,
-  },
-  tile: {
-    margin: 10,
-    width: 100,
-    height: 100,
-    alignItems: 'center'
-  }
-});

@@ -9,6 +9,7 @@ const POLYHEDRA = require('../data/polyhedra.json');
 class Polyhedron {
   constructor(data) {
     this.name = data.name;
+    this.shortName = data.shortName || data.name;
     this.key = data.key;
 
     this.faces = data.faces;

@@ -14,17 +14,16 @@ Run the App in iOS simulator using `react-native run-ios`.
 
 ## TODO list
 
-[P1] Icons + Logo + Fonts + Background
-[P1] Homescreen styles cleanup
+[P1] Pol;yhedron list view tile size
 [P1] Fallback for all Polyhedra
-[P1] Polyhedron descriptions + images
+[P1] Polyhedron descriptions + images + styling
 
 [P2] All Animations + Nets
 [P2] Alert when completing a polyhedron, nicer modals
 [P2] Check if modals still work
 [P2] Swap shapes screen
-[P2] Puzzle/power up screen
 
+[P3] Puzzle/power up screen
 [P3] Interactive rotations, folding animation
 [P3] Tutorial
 [P3] About/Credits screen

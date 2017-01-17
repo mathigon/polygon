@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
   },
   tabText: {
     color: '#fff',
-    fontSize: 12
+    fontSize: 12,
+    fontFamily: 'Avenir-Book'
   }
 });

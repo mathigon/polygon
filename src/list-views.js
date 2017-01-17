@@ -11,6 +11,10 @@ const POLYGONS = require('../data/polygons.json');
 const POLYGON_IMAGES = require('../images/polygons/polygons.js');
 const LOGO = require('../images/logo.png');
 
+const ICONS = [require('../images/icons/camera.png'),
+  require('../images/icons/exchange.png'),
+  require('../images/icons/puzzle.png')];
+
 import { PlatonicSolids, ArchimedeanSolids } from './polyhedron.js'
 import { PolyhedronRotation } from './polyhedron-rotation.js'
 
@@ -36,9 +40,9 @@ export class PolygonListView extends Component {
       <View style={styles.grid}>{polygons}</View>
       <Text style={styles.title}>Collect more shapes:</Text>
       <View style={styles.addButtons}>
-        <TouchableHighlight style={styles.addButton} onPress={() => { this.props.navigator.push({name: 'Camera'}) }}><View/></TouchableHighlight>
-        <TouchableHighlight style={styles.addButton}><View/></TouchableHighlight>
-        <TouchableHighlight style={styles.addButton} onPress={() => { this.props.addShape('s-3-' + Math.random()); }}><View/></TouchableHighlight>
+        <TouchableHighlight style={styles.addButton} onPress={() => { this.props.navigator.push({name: 'Camera'}) }}><Image source={ICONS[0]}/></TouchableHighlight>
+        <TouchableHighlight style={styles.addButton}><Image source={ICONS[1]}/></TouchableHighlight>
+        <TouchableHighlight style={styles.addButton} onPress={() => { this.props.addShape('s-3-' + Math.random()); }}><Image source={ICONS[2]}/></TouchableHighlight>
       </View>
     </View>);
   }
@@ -68,7 +72,7 @@ export class PolyhedronListView extends Component {
         <TouchableHighlight style={styles.tile} key={p.key} onPress={() => { this.goToView(p) }}>
           <View style={{alignItems: 'center'}}>
             <PolyhedronRotation p={p.key} style={{width: 80, height: 80}}/>
-            <Text style={styles.label}>{p.name}</Text>
+            <Text style={styles.label}>{p.shortName}</Text>
             {this.renderProgressBar(p)}
           </View>
         </TouchableHighlight>);
@@ -78,7 +82,7 @@ export class PolyhedronListView extends Component {
 
   render() {
     return (<ScrollView contentContainerStyle={styles.view}>
-      <Text style={styles.title}>Platonic Solids</Text>
+      <Text style={[styles.title, {marginTop: 40}]}>Platonic Solids</Text>
       <View style={styles.grid}>{this.renderGrid(PlatonicSolids)}</View>
       <Text style={styles.title}>Archimedean Solids</Text>
       <View style={styles.grid}>{this.renderGrid(ArchimedeanSolids)}</View>
@@ -100,7 +104,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#fff'
+    color: '#fff',
+    fontFamily: 'Avenir-Book'
   },
   grid: {
     justifyContent: 'center',
@@ -118,7 +123,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#fff',
     textAlign: 'center',
-    fontSize: 13
+    fontSize: 14,
+    fontFamily: 'Avenir-Book'
   },
 
   logo: {
@@ -134,9 +140,7 @@ const styles = StyleSheet.create({
   addButton: {
     width: 60,
     height: 60,
-    margin: 10,
-    backgroundColor: '#fff',
-    borderRadius: 30
+    margin: 10
   },
 
   badge: {
@@ -154,7 +158,7 @@ const styles = StyleSheet.create({
   badgeText: {
     color: '#fff',
     backgroundColor: 'transparent',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
   },
 
   progressbarWrap: {

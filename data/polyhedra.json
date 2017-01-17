@@ -57,6 +57,7 @@
       "faces": {"3": 4, "6": 4}
     }, {
       "name": "Cuboctahedron",
+      "shortName": "Cubocta-hedron",
       "key": "cuboctahedron",
       "description": "...",
       "faces": {"3": 8, "4": 6}
@@ -72,11 +73,13 @@
       "faces": {"4": 6, "6": 8}
     }, {
       "name": "Rhombicuboctahedron",
+      "shortName": "Rhombicub-octahedron",
       "key": "rhombicuboctahedron",
       "description": "...",
       "faces": {"3": 8, "4": 18}
     }, {
       "name": "Truncated Cuboctahedron",
+      "shortName": "Trunc. Cub-octahedron",
       "key": "truncated-cuboctahedron",
       "description": "...",
       "faces": {"4": 12, "6": 8, "8": 6}
@@ -87,6 +90,7 @@
       "faces": {"3": 32, "4": 6}
     }, {
       "name": "Icosidodecahedron",
+      "shortName": "Icosi-dodecahedron",
       "key": "icosidodecahedron",
       "description": "...",
       "faces": {"3": 20, "5": 12}
@@ -102,11 +106,13 @@
       "faces": {"5": 12, "6": 20}
     }, {
       "name": "Rhombicosidodecahedron",
+      "shortName": "Rhombicosi-dodecahedron",
       "key": "rhombicosidodecahedron",
       "description": "...",
       "faces": {"3": 20, "4": 30, "5": 12}
     }, {
       "name": "Truncated Icosidodecahedron",
+      "shortName": "Trunc. Icosi-dodecahedron",
       "key": "truncated-icosidodecahedron",
       "description": "...",
       "faces": {"4": 30, "6": 20, "10": 12}
