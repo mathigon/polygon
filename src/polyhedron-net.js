@@ -5,6 +5,7 @@
 
 
 import React, { Component } from 'react';
+import { View, Text } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
 
 const POLYGONS = require('../data/polygons.json');
@@ -21,7 +22,7 @@ export class PolyhedronNet extends Component {
         for (let i=0; i<points.length; ++i) {
           let collected = (i < this.props.shapes[p.key].length);
           let fill = collected ? p.color : '#00081D';
-          paths.push(<Path key={i} d={points[i]} stroke="#fff" stroke-width="1" fill={fill}/>)
+          paths.push(<Path key={p.key + '-' + i} d={points[i]} stroke="#fff" stroke-width="1" fill={fill}/>)
         }
       }
     }

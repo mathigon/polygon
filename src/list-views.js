@@ -10,6 +10,7 @@ import { Image, ScrollView, TouchableHighlight, Text, View, StyleSheet } from 'r
 const POLYGONS = require('../data/polygons.json');
 const POLYGON_IMAGES = require('../images/polygons/polygons.js');
 const LOGO = require('../images/logo.png');
+import FALLBACKS from '../images/placeholders/placeholders.js';
 
 const ICONS = [require('../images/icons/camera.png'),
   require('../images/icons/exchange.png'),
@@ -57,23 +58,24 @@ export class PolyhedronListView extends Component {
     this.props.navigator.push({name: 'PolyhedronDetail', polyhedron: p});
   }
 
-  renderProgressBar(p) {
-    let progress = p.progress(this.props.shapes);
+  renderProgressBar(progress) {
     if (progress >= 1) return;
     return (<View style={styles.progressbarWrap}>
       <View style={[styles.progressbar, {width: 58 * progress}]}/>
     </View>);
   }
 
-  renderGrid(polyhedra) {
+  renderGrid(polyhedra, height) {
     let result = [];
     for (let p of polyhedra) {
+      let progress = p.progress(this.props.shapes);
+      let img = progress >= 1 ? <PolyhedronRotation p={p.key} style={{width: 80, height: 80}}/> : <Image source={FALLBACKS[p.key]} style={{width: 80, height: 80, opacity: 0.7}}/>;
       result.push(
-        <TouchableHighlight style={styles.tile} key={p.key} onPress={() => { this.goToView(p) }}>
+        <TouchableHighlight style={[styles.tile, {height}]} key={p.key} onPress={() => { this.goToView(p) }}>
           <View style={{alignItems: 'center'}}>
-            <PolyhedronRotation p={p.key} style={{width: 80, height: 80}}/>
+            {img}
             <Text style={styles.label}>{p.shortName}</Text>
-            {this.renderProgressBar(p)}
+            {this.renderProgressBar(progress)}
           </View>
         </TouchableHighlight>);
     }
@@ -83,9 +85,9 @@ export class PolyhedronListView extends Component {
   render() {
     return (<ScrollView contentContainerStyle={styles.view}>
       <Text style={[styles.title, {marginTop: 40}]}>Platonic Solids</Text>
-      <View style={styles.grid}>{this.renderGrid(PlatonicSolids)}</View>
+      <View style={styles.grid}>{this.renderGrid(PlatonicSolids, 110)}</View>
       <Text style={styles.title}>Archimedean Solids</Text>
-      <View style={styles.grid}>{this.renderGrid(ArchimedeanSolids)}</View>
+      <View style={styles.grid}>{this.renderGrid(ArchimedeanSolids, 135)}</View>
     </ScrollView>);
   }
 }
@@ -115,7 +117,7 @@ const styles = StyleSheet.create({
   tile: {
     margin: 8,
     width: 100,
-    height: 120,
+    height: 110,
     alignItems: 'center'
   },
   label: {
@@ -145,20 +147,18 @@ const styles = StyleSheet.create({
 
   badge: {
     position: 'absolute',
-    top: 0,
-    right: 10,
-    width: 23,
-    height: 23,
-    borderRadius: 15,
-    alignItems: 'center',
-    backgroundColor: '#d00',
-    borderWidth: 2,
-    borderColor: '#fff',
+    top: 26,
+    left: 32,
+    width: 36,
+    alignItems: 'center'
   },
   badgeText: {
     color: '#fff',
     backgroundColor: 'transparent',
     fontWeight: 'bold',
+    fontSize: 22,
+    opacity: 0.9,
+    fontFamily: 'Avenir-Book'
   },
 
   progressbarWrap: {

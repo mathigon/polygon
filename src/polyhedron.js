@@ -10,9 +10,12 @@ class Polyhedron {
   constructor(data) {
     this.name = data.name;
     this.shortName = data.shortName || data.name;
+    this.description = data.description || '';
+
     this.key = data.key;
 
     this.faces = data.faces;
+    this.vertices = data.vertices;
     this.total = Object.keys(this.faces).reduce((t, s) => t + this.faces[s], 0);
 
     this.netSize = data.netSize || [330, 120];

@@ -1,0 +1,20 @@
+module.exports = {
+  'cube': require('./cube.png'),
+  'cuboctahedron': require('./cuboctahedron.png'),
+  'dodecahedron': require('./dodecahedron.png'),
+  'icosahedron': require('./icosahedron.png'),
+  'icosidodecahedron': require('./icosidodecahedron.png'),
+  'octahedron': require('./octahedron.png'),
+  'rhombicosidodecahedron': require('./rhombicosidodecahedron.png'),
+  'rhombicuboctahedron': require('./rhombicuboctahedron.png'),
+  'snub-cube': require('./snub-cube.png'),
+  'snub-dodecahedron': require('./snub-dodecahedron.png'),
+  'tetrahedron': require('./tetrahedron.png'),
+  'truncated-cube': require('./truncated-cube.png'),
+  'truncated-cuboctahedron': require('./truncated-cuboctahedron.png'),
+  'truncated-dodecahedron': require('./truncated-dodecahedron.png'),
+  'truncated-icosahedron': require('./truncated-icosahedron.png'),
+  'truncated-icosidodecahedron': require('./truncated-icosidodecahedron.png'),
+  'truncated-octahedron': require('./truncated-octahedron.png'),
+  'truncated-tetrahedron': require('./truncated-tetrahedron.png')
+};

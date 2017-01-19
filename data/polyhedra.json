@@ -3,8 +3,9 @@
     {
       "name": "Tetrahedron",
       "key": "tetrahedron",
-      "description": "The tetrahedron consists of 4 triangular faces. It has 4 vertices and 6 edges.",
+      "description": "The Greek Philosopher Plato believed that the ancient element Fire was made up of tiny Tetrahedra.",
       "faces": {"3": 4},
+      "vertices": 4,
       "netSize": [330, 181],
       "net": {
         "3": ["M116,90.61l50,86.6H66Z", "M166,177.21,116,90.6H216Z", "M166,4l50,86.6H116Z", "M216,90.61l50,86.6H166Z"]
@@ -12,8 +13,9 @@
     }, {
       "name": "Cube",
       "key": "cube",
-      "description": "The cube, or hexahedron, consists of 6 quadratic faces. It has 8 vertices and 12 edges.",
+      "description": "The Greek Philosopher Plato believed that the ancient element Earth was made up of tiny cubes.",
       "faces": {"4": 6},
+      "vertices": 8,
       "netSize": [330, 196],
       "net": {
         "4": ["M293,66.27v63.24H229.76V66.27Z", "M166.5,129.52v63.24H103.26V129.52Z", "M166.5,3V66.25H103.26V3Z", "M166.5,66.27v63.24H103.26V66.27Z", "M229.75,66.27v63.24H166.51V66.27Z", "M103.25,66.27v63.24H40V66.27Z"]
@@ -21,8 +23,9 @@
     }, {
       "name": "Octahedron",
       "key": "octahedron",
-      "description": "...",
+      "description": "The Greek Philosopher Plato believed that the ancient element Air was made up of tiny Octahedra.",
       "faces": {"3": 8},
+      "vertices": 6,
       "netSize": [330, 210],
       "net": {
         "3": ["M65.57,71.54l39.57,68.54H26Z", "M105.14,140.08,65.57,71.54h79.14Z", "M144.71,208.62l-39.57-68.54h79.14Z", "M144.71,71.54l39.57,68.54H105.14Z", "M184.29,140.08,144.71,71.54h79.14Z", "M184.29,3l39.57,68.54H144.71Z", "M223.86,71.54l39.57,68.54H184.29Z", "M263.43,140.08,223.86,71.54H303Z"]
@@ -30,10 +33,11 @@
     }, {
       "name": "Dodecahedron",
       "key": "dodecahedron",
-      "description": "...",
+      "description": "The Greek Philosopher Plato believed that the Universe was a gigantic Dodecahedron.",
       "faces": {
         "5": 12
       },
+      "vertices": 20,
       "netSize": [330, 165],
       "net": {
         "5": ["M263,63.83l12.23,37.64-32,23.26-32-23.26,12.23-37.64Z", "M263,63.83l12.23-37.64-32-23.26-32,23.26,12.23,37.64Z", "M275.19,101.47h39.58L327,63.83,295,40.57,263,63.83Z", "M223.38,63.83l-32-23.26-32,23.26,12.23,37.64h39.58Z", "M243.17,124.74l12.23,37.64H295l12.23-37.64-32-23.26Z", "M243.17,124.74l-12.23,37.64H191.36l-12.23-37.64,32-23.26Z", "M171.57,101.47l-32,23.26-32-23.26,12.23-37.64h39.58Z", "M107.53,101.47H68L55.72,63.83l32-23.26,32,23.26Z", "M119.76,63.83l32-23.26L139.55,2.93H100L87.74,40.57Z", "M55.72,63.83l-32-23.26L35.93,2.93H75.51L87.74,40.57Z", "M68,101.47,55.72,139.12l32,23.26,32-23.26-12.23-37.64Z", "M68,101.47l-32,23.26-32-23.26L16.14,63.83H55.72Z"]
@@ -41,11 +45,12 @@
     }, {
       "name": "Icosahedron",
       "key": "icosahedron",
-      "description": "...",
+      "description": "The Greek Philosopher Plato believed that the ancient element Water was made up of tiny Icosahedra. Many viruses, bacteria and other tiny organisms are shaped like icosahedra. Viruses, for example, must enclose their genetic material inside a shell of many identical protein units. The icosahedron is the most efficient way to do this – because it consists of a few regular elements but is almost shaped like a sphere.",
       "faces": {"3": 20},
+      "vertices": 12,
       "netSize": [330, 147],
       "net": {
-        "3": []
+        "3": ["M31.57,3.8,2.26,50.7l59.11-.26Z", "M32.06,97.35,61.37,50.45,2.26,50.7Z", "M61.37,50.45,32.06,97.35l59.11-.26Z", "M61.86,144,91.16,97.09l-59.11.26Z", "M90.68,3.54,61.37,50.45l59.11-.26Z", "M91.16,97.09l29.31-46.91-59.11.26Z", "M120.47,50.19,91.16,97.09l59.11-.26Z", "M121,143.74l29.31-46.91-59.11.26Z", "M149.78,3.28,120.47,50.19l59.11-.26Z", "M150.27,96.84l29.31-46.91-59.11.26Z", "M179.58,49.93,150.27,96.84l59.11-.26Z", "M180.07,143.48l29.31-46.91-59.11.26Z", "M208.89,3,179.58,49.93l59.11-.26Z", "M209.37,96.58l29.31-46.91-59.11.26Z", "M238.68,49.67,209.37,96.58l59.11-.26Z", "M239.17,143.23l29.31-46.91-59.11.26Z", "M268,2.77,238.68,49.67l59.11-.26Z", "M268.48,96.32l29.31-46.91-59.11.26Z", "M297.79,49.41,268.48,96.32l59.11-.26Z", "M298.28,143l29.31-46.91-59.11.26Z"]
       }
     }
   ],
@@ -53,74 +58,95 @@
     {
       "name": "Truncated Tetrahedron",
       "key": "truncated-tetrahedron",
-      "description": "...",
-      "faces": {"3": 4, "6": 4}
+      "faces": {"3": 4, "6": 4},
+      "vertices": 12,
+      "netSize": [330, 232],
+      "net": {
+        "3": ["M98.63,93.79l26.19,45.37L151,93.79Z", "M203.48,93.79l26.22,45.37,26.19-45.37Z", "M151,184.59,177.26,230l26.22-45.4Z", "M20,230l26.19-45.37L72.41,230Z"],
+        "6": ["M72.41,139.2h52.42L151,184.6,124.84,230H72.41L46.2,184.6Z", "M151,3h52.42l26.21,45.4L203.47,93.8H151L124.84,48.4Z", "M151,93.8h52.42l26.21,45.4-26.21,45.4H151l-26.21-45.4Z", "M229.68,139.2h52.42l26.21,45.4L282.11,230H229.68l-26.21-45.4Z"]
+      }
     }, {
       "name": "Cuboctahedron",
       "shortName": "Cubocta-hedron",
       "key": "cuboctahedron",
-      "description": "...",
-      "faces": {"3": 8, "4": 6}
+      "faces": {"3": 8, "4": 6},
+      "vertices": 12,
+      "netSize": [330, 188],
+      "net": {
+        "4": ["M113.25,79.24l56.35.52-.52,56.35-56.35-.52Z", "M36.47,57.91,85.52,30.19l27.72,49.06L64.19,107Z", "M64.19,107l48.54,28.62L84.11,184.13,35.57,155.5Z", "M198.22,31.22l48.54,28.62-28.62,48.54L169.59,79.76Z", "M295.81,32.12l27.72,49.06L274.48,108.9,246.75,59.84Z", "M218.13,108.38l56.35.52L274,165.25l-56.35-.52Z"],
+        "3": ["M169.59,79.76l-56.35-.52L141.87,30.7Z", "M113.25,79.24l-.52,56.35L64.19,107Z", "M169.6,79.76l-.52,56.35,49.06-27.72Z", "M274,165.25l.52-56.35L323,137.52Z", "M84.11,184.13l28.62-48.54,27.72,49.06Z", "M218.13,108.38l28.62-48.54,27.72,49.06Z", "M295.81,32.12,246.75,59.84l.52-56.35Z", "M36.47,57.91,64.19,107l-56.35-.52Z"]
+      }
     }, {
       "name": "Truncated Cube",
       "key": "truncated-cube",
-      "description": "...",
-      "faces": {"3": 8, "8": 6}
+      "faces": {"3": 8, "8": 6},
+      "vertices": 24,
+      "netSize": [330, 243],
+      "net": {
+        "3": ["M239.66,74.07l31.56,8.46-23.11,23.11Z", "M239.66,169.87l31.56-8.46-23.11-23.11Z", "M160.77,74.07l31.56,8.46-23.11,23.11Z", "M160.77,169.87l31.56-8.46-23.11-23.11Z", "M81.89,74.07l31.56,8.46L90.34,105.63Z", "M81.89,169.87l31.56-8.46L90.34,138.31Z", "M3,74.07l31.56,8.46L11.46,105.63Z", "M3,169.87l31.56-8.46L11.46,138.31Z"],
+        "8": ["M90.34,105.76l23-23.14L146,82.53l23.14,23,.09,32.64-23,23.14-32.64.09-23.14-23Z", "M90.34,26.87l23-23.14L146,3.64l23.14,23,.09,32.64-23,23.14-32.64.09-23.14-23Z", "M90.34,184.64l23-23.14,32.64-.09,23.14,23,.09,32.64-23,23.14-32.64.09-23.14-23Z", "M11.46,105.76l23-23.14,32.64-.09,23.14,23,.09,32.64-23,23.14-32.64.09-23.14-23Z", "M248.11,105.76l23-23.14,32.64-.09,23.14,23,.09,32.64-23,23.14-32.64.09-23.14-23Z", "M169.23,105.76l23-23.14,32.64-.09,23.14,23,.09,32.64-23,23.14-32.64.09-23.14-23Z"]
+      }
     }, {
       "name": "Truncated Octahedron",
       "key": "truncated-octahedron",
-      "description": "...",
-      "faces": {"4": 6, "6": 8}
+      "faces": {"4": 6, "6": 8},
+      "vertices": 24,
+      "netSize": [330, 188],
+      "net": {
+        "4": ["M119.76,143.31,88.23,161.52,70,130l31.54-18.21Z", "M38.51,75.38v36.42H2.1V75.38Z", "M119.75,43.87,101.54,75.4,70,57.2,88.22,25.66Z", "M282.21,143.32l-31.54,18.21L232.47,130,264,111.79Z", "M201,75.38V111.8H164.55V75.38Z", "M282.2,43.87,264,75.41l-31.53-18.2,18.21-31.54Z"],
+        "6": ["M70,57.2V20.8L38.5,2.6,7,20.8V57.2L38.51,75.4Z", "M101.53,111.8V75.4L70,57.2,38.51,75.4v36.4L70,130Z", "M164.55,111.8V75.4L133,57.2,101.53,75.4v36.4L133,130Z", "M70,166.38V130l-31.52-18.2L7,130v36.39l31.52,18.2Z", "M232.47,57.21V20.81L201,2.61l-31.51,18.2V57.2L201,75.4Z", "M264,111.8V75.41l-31.51-18.2L201,75.4v36.4L232.47,130Z", "M327,111.8V75.41l-31.51-18.2L264,75.41v36.4L295.49,130Z", "M232.47,166.39V130L201,111.8,169.44,130v36.39L201,184.58Z"]
+      }
     }, {
       "name": "Rhombicuboctahedron",
       "shortName": "Rhombicub-octahedron",
       "key": "rhombicuboctahedron",
-      "description": "...",
-      "faces": {"3": 8, "4": 18}
+      "faces": {"3": 8, "4": 18},
+      "vertices": 24
     }, {
       "name": "Truncated Cuboctahedron",
       "shortName": "Trunc. Cub-octahedron",
       "key": "truncated-cuboctahedron",
-      "description": "...",
-      "faces": {"4": 12, "6": 8, "8": 6}
+      "faces": {"4": 12, "6": 8, "8": 6},
+      "vertices": 48
     }, {
       "name": "Snub Cube",
       "key": "snub-cube",
-      "description": "...",
-      "faces": {"3": 32, "4": 6}
+      "faces": {"3": 32, "4": 6},
+      "vertices": 24
     }, {
       "name": "Icosidodecahedron",
       "shortName": "Icosi-dodecahedron",
       "key": "icosidodecahedron",
-      "description": "...",
-      "faces": {"3": 20, "5": 12}
+      "faces": {"3": 20, "5": 12},
+      "vertices": 30
     }, {
       "name": "Truncated Dodecahedron",
       "key": "truncated-dodecahedron",
-      "description": "...",
-      "faces": {"3": 20, "10": 12}
+      "faces": {"3": 20, "10": 12},
+      "vertices": 60
     }, {
       "name": "Truncated Icosahedron",
       "key": "truncated-icosahedron",
-      "description": "...",
-      "faces": {"5": 12, "6": 20}
+      "description": "The truncated icosahedron is probably the most famous polyhedron in the world: it is the shape of the football. It is also the shape of the C60 molecule, which  consists of 60 carbon atoms. It was discovered in 1985 when scientists researched interstellar dust. They named it “Buckyball” (or Buckminsterfullerene) after the architect Buckminster Fuller, famous for constructing similar-looking geodesic domes.",
+      "faces": {"5": 12, "6": 20},
+      "vertices": 60
     }, {
       "name": "Rhombicosidodecahedron",
       "shortName": "Rhombicosi-dodecahedron",
       "key": "rhombicosidodecahedron",
-      "description": "...",
-      "faces": {"3": 20, "4": 30, "5": 12}
+      "faces": {"3": 20, "4": 30, "5": 12},
+      "vertices": 60
     }, {
       "name": "Truncated Icosidodecahedron",
       "shortName": "Trunc. Icosi-dodecahedron",
       "key": "truncated-icosidodecahedron",
-      "description": "...",
-      "faces": {"4": 30, "6": 20, "10": 12}
+      "faces": {"4": 30, "6": 20, "10": 12},
+      "vertices": 120
     }, {
       "name": "Snub Dodecahedron",
       "key": "snub-dodecahedron",
-      "description": "...",
-      "faces": {"3": 80, "5": 12}
+      "faces": {"3": 80, "5": 12},
+      "vertices": 60
     }
   ]
 }
