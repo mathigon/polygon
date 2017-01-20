@@ -7,12 +7,13 @@
 import React, { Component } from 'react';
 import { ScrollView, TouchableHighlight, Text, View, Image, StyleSheet } from 'react-native';
 import NavigationBar from 'react-native-navbar';
+import ImageSequence from 'react-native-image-sequence';
 
-import { PolyhedronRotation } from './polyhedron-rotation.js';
 import { PolyhedronNet } from './polyhedron-net.js';
 
-const BACKGROUND = require('../images/background.jpg');
-const POLYGONS = require('../data/polygons.json');
+import BACKGROUND from '../images/background.jpg';
+import POLYGONS from '../data/polygons.json';
+import ROTATIONS from '../images/rotations.js';
 
 
 export class PolyhedronView extends Component {
@@ -44,7 +45,7 @@ export class PolyhedronView extends Component {
       <Image source={BACKGROUND} style={{flex: 1, width: null, height: null}} resizeMode="cover">
         <NavigationBar title={{title: p.name, style: {color: '#fff', fontSize: 16, fontWeight: 'bold'}}} leftButton={backButton} statusBar={{style: 'light-content'}} tintColor='#1F2E3E'/>
         <ScrollView contentContainerStyle={{alignItems: 'center', paddingBottom: 36}}>
-          <PolyhedronRotation p={p.key} style={{width: 320, height: 320, margin: 20}}/>
+          <ImageSequence images={ROTATIONS[p.key]} style={{width: 320, height: 320, margin: 20}}/>
           <PolyhedronNet p={p} shapes={this.props.shapes}/>
           {this.renderMoreText(p)}
           {this.renderDescription(p)}

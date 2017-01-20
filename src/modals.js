@@ -5,19 +5,24 @@
 
 
 import React, { Component } from 'react';
-import { Text, View, StyleSheet } from 'react-native';
-import Svg, { Polygon } from 'react-native-svg';
+import { Text, View, StyleSheet, Image } from 'react-native';
 import Modal from 'react-native-modalbox';
+
+const POLYGON_IMAGES = require('../images/polygons/polygons.js');
 
 
 export class PolygonModal extends Component {
 
+  open() {
+    this.refs.me.open();
+  }
+
   render() {
     return (
-      <Modal style={styles.modal} position={'center'}>
+      <Modal style={styles.modal} position={'center'} ref={'me'}>
         <View style={styles.modalBody}>
           <Text style={styles.modalText}>You've added a new {this.props.polygon.name} to your library!</Text>
-          <Svg height="60" width="60"><Polygon points={this.props.polygon.points} fill={this.props.polygon.color}/></Svg>
+          <Image source={POLYGON_IMAGES[this.props.polygon.key]} style={{height: 80, width: 80}}/>
         </View>
       </Modal>
     );
@@ -27,7 +32,7 @@ export class PolygonModal extends Component {
 
 const styles = StyleSheet.create({
   modal: {
-    height: 200,
+    height: 240,
     backgroundColor: 'transparent'
   },
   modalBody: {
@@ -42,6 +47,7 @@ const styles = StyleSheet.create({
   modalText: {
     fontSize: 20,
     marginBottom: 20,
-    textAlign: 'center'
+    textAlign: 'center',
+    fontFamily: 'Avenir-Book'
   }
 });

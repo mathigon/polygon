@@ -6,18 +6,19 @@
 
 import React, { Component } from 'react';
 import { Image, ScrollView, TouchableHighlight, Text, View, StyleSheet } from 'react-native';
+import ImageSequence from 'react-native-image-sequence';
 
 const POLYGONS = require('../data/polygons.json');
 const POLYGON_IMAGES = require('../images/polygons/polygons.js');
 const LOGO = require('../images/logo.png');
 import FALLBACKS from '../images/placeholders/placeholders.js';
+import ROTATIONS from '../images/rotations.js';
 
 const ICONS = [require('../images/icons/camera.png'),
   require('../images/icons/exchange.png'),
   require('../images/icons/puzzle.png')];
 
 import { PlatonicSolids, ArchimedeanSolids } from './polyhedron.js'
-import { PolyhedronRotation } from './polyhedron-rotation.js'
 
 
 // -----------------------------------------------------------------------------
@@ -28,11 +29,12 @@ export class PolygonListView extends Component {
   render() {
     let polygons = [];
     for (let p of POLYGONS) {
+      let top = p.key == 3 ? 34 : p.key == 5 ? 30 : 26;
       let count = this.props.shapes[p.key].length;
       polygons.push(<View style={styles.tile} key={p.key}>
         <Image source={POLYGON_IMAGES[p.key]}/>
         <Text style={styles.label}>{p.name}s</Text>
-        <View style={styles.badge}><Text style={styles.badgeText}>{count}</Text></View>
+        <View style={[styles.badge, {top}]}><Text style={styles.badgeText}>{count}</Text></View>
       </View>);
     }
 
@@ -65,15 +67,19 @@ export class PolyhedronListView extends Component {
     </View>);
   }
 
+  renderImage(p, progress) {
+    if (progress < 1) return <Image source={FALLBACKS[p]} style={{width: 80, height: 80, opacity: 0.7}}/>;
+    return <ImageSequence images={ROTATIONS[p]} style={{width: 80, height: 80}}/>;
+  }
+
   renderGrid(polyhedra, height) {
     let result = [];
     for (let p of polyhedra) {
       let progress = p.progress(this.props.shapes);
-      let img = progress >= 1 ? <PolyhedronRotation p={p.key} style={{width: 80, height: 80}}/> : <Image source={FALLBACKS[p.key]} style={{width: 80, height: 80, opacity: 0.7}}/>;
       result.push(
         <TouchableHighlight style={[styles.tile, {height}]} key={p.key} onPress={() => { this.goToView(p) }}>
           <View style={{alignItems: 'center'}}>
-            {img}
+            {this.renderImage(p.key, progress)}
             <Text style={styles.label}>{p.shortName}</Text>
             {this.renderProgressBar(progress)}
           </View>
@@ -147,7 +153,6 @@ const styles = StyleSheet.create({
 
   badge: {
     position: 'absolute',
-    top: 26,
     left: 32,
     width: 36,
     alignItems: 'center'
