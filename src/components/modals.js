@@ -7,17 +7,39 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet, Image } from 'react-native';
 import Modal from 'react-native-modalbox';
+import ImageSequence from 'react-native-image-sequence';
 
 const POLYGON_IMAGES = require('../../images/polygons/polygons.js');
+import ROTATIONS from '../../images/rotations.js';
 
+
+const QUEUED_MODALS = [];
+let OPEN_MODAL = null;
+
+function onClose() {
+  OPEN_MODAL = null;
+  if (QUEUED_MODALS.length) {
+    let next = QUEUED_MODALS.shift();
+    next.modal.open(next.data);
+  }
+}
 
 class AbstractModal extends Component {
   open(data) {
     this.data = data;
+    this.forceUpdate();
     this.refs.me.open();
+    OPEN_MODAL = this;
+  }
+  queue(data) {
+    if (OPEN_MODAL) {
+      QUEUED_MODALS.push({modal: this, data: data});
+    } else {
+      this.open(data);
+    }
   }
   render() {
-    return (<Modal style={styles.modal} position={'center'} ref={'me'}>
+    return (<Modal style={styles.modal} onClosed={onClose} position={'center'} ref={'me'}>
       <View style={styles.modalBody}>{this.renderBody()}</View>
     </Modal>);
   }
@@ -38,7 +60,7 @@ export class PolyhedronModal extends AbstractModal {
   renderBody() {
     if (!this.data) return null;
     return (<View>
-      <Text>TODO Image!</Text>
+      <ImageSequence images={ROTATIONS[this.data.key]} style={{width: 120, height: 120, margin: 20}}/>
       <Text style={styles.modalText}>You've completed the {this.data.name}!</Text>
     </View>);
   }

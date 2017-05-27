@@ -33,3 +33,4 @@ class Polyhedron {
 
 export const PlatonicSolids = POLYHEDRA.platonic.map(p => new Polyhedron(p));
 export const ArchimedeanSolids = POLYHEDRA.archimedean.map(p => new Polyhedron(p));
+export const Polyhedra = [...PlatonicSolids, ...ArchimedeanSolids];

@@ -5,7 +5,7 @@
 
 
 import React, { Component } from 'react';
-import { ScrollView, TouchableHighlight, Text, View, Image, StyleSheet } from 'react-native';
+import { ScrollView, Text, Image, StyleSheet } from 'react-native';
 import NavigationBar from 'react-native-navbar';
 import ImageSequence from 'react-native-image-sequence';
 
@@ -46,7 +46,7 @@ export class PolyhedronView extends Component {
         <NavigationBar title={{title: p.name, style: {color: '#fff', fontSize: 16, fontWeight: 'bold'}}} leftButton={backButton} statusBar={{style: 'light-content'}} tintColor='#1F2E3E'/>
         <ScrollView contentContainerStyle={{alignItems: 'center', paddingBottom: 36}}>
           <ImageSequence images={ROTATIONS[p.key]} style={{width: 320, height: 320, margin: 20}}/>
-          <PolyhedronNet p={p} shapes={this.props.shapes}/>
+          <PolyhedronNet p={p} shapes={this.props.state.shapes}/>
           {this.renderMoreText(p)}
           {this.renderDescription(p)}
           <Text style={styles.text}>{p.description}</Text>

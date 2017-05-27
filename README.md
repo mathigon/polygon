@@ -14,25 +14,22 @@ Run the App in iOS simulator using `react-native run-ios`.
 
 ## TODO list
 
-[P1] Queue Polyhedron completion alert
-[P1] Nicer modal styles
-[P1] Badges screen + modals
+[P1] Power up screen, Badge Icons
 [P1] About screen + subscreens
-[P1] Puzzle/power up screen + modals
+[P2] Nicer styles (modals, logo, etc.)
 
-[P2] Improve polyhedron descriptions + images
-[P2] Tutorial, help messages accross app
-[P2] Swap shapes screen
-[P2] SVG net download
-[P2] Generate many QR codes
+[P2] Polyhedron screens (Images, SVG download)
+[P2] Badges modals + validation
+[P2] Puzzle screens + validation
 
-[P3] Code signing and App Store release
-[P3] Interactive rotations, folding animation
-[P3] Nicer and customisable QR codes
+[P3] Generate many QR codes
+[P3] Tutorial, help messages accross app
+[P3] Swap shapes screen
 
 [P4] Android support, Web version?
-[P4] Characters, Incentives, Fun
-[P4] Geolocation -> list of nearby museums
+[P4] Code signing and App Store release
+[P4] Interactive rotations, folding animation
+[P4] Nicer and customisable QR codes
 
 
 ## 3d Model Generation
