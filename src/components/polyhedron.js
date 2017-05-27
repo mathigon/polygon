@@ -4,7 +4,7 @@
 // -----------------------------------------------------------------------------
 
 
-const POLYHEDRA = require('../data/polyhedra.json');
+const POLYHEDRA = require('../../data/polyhedra.json');
 
 class Polyhedron {
   constructor(data) {

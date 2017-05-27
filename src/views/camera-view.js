@@ -17,7 +17,7 @@ export class CameraView extends Component {
     setTimeout(function() {
       Vibration.vibrate();
       _this.props.navigator.pop();
-      _this.props.addShape(result.data);
+      _this.props.state.addShape(result.data);
     }, 1000);
   }
 

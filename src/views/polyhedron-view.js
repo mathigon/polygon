@@ -9,17 +9,17 @@ import { ScrollView, TouchableHighlight, Text, View, Image, StyleSheet } from 'r
 import NavigationBar from 'react-native-navbar';
 import ImageSequence from 'react-native-image-sequence';
 
-import { PolyhedronNet } from './polyhedron-net.js';
+import { PolyhedronNet } from '../components/polyhedron-net.js';
 
-import BACKGROUND from '../images/background.jpg';
-import POLYGONS from '../data/polygons.json';
-import ROTATIONS from '../images/rotations.js';
+import BACKGROUND from '../../images/background.jpg';
+import POLYGONS from '../../data/polygons.json';
+import ROTATIONS from '../../images/rotations.js';
 
 
 export class PolyhedronView extends Component {
 
   renderMoreText(polyhedron) {
-    let progress = polyhedron.progress(this.props.shapes);
+    let progress = polyhedron.progress(this.props.state.shapes);
     let missing = Math.round((1 - progress) * polyhedron.total);
     if (missing == 1) return <Text style={styles.text}>You need just one more shape!</Text>;
     if (missing > 1) return <Text style={styles.text}>You need {missing} more shapes!</Text>;

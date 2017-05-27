@@ -9,11 +9,19 @@ import { TouchableOpacity, Text, View, StyleSheet, Image } from 'react-native';
 import { BlurView } from 'react-native-blur';
 
 
-const IMAGES = [require('../images/icons/polygons.png'),
-  require('../images/icons/polyhedra.png')];
+const IMAGES = [
+  require('../../images/icons/tab1.png'),
+  require('../../images/icons/tab2.png'),
+  require('../../images/icons/tab3.png'),
+  require('../../images/icons/tab4.png')
+];
 
-const ACTIVE_IMAGES = [require('../images/icons/polygons-active.png'),
-  require('../images/icons/polyhedra-active.png')];
+const ACTIVE_IMAGES = [
+  require('../../images/icons/tab1-active.png'),
+  require('../../images/icons/tab2-active.png'),
+  require('../../images/icons/tab3-active.png'),
+  require('../../images/icons/tab4-active.png')
+];
 
 
 export class TabBar extends Component {
@@ -30,7 +38,7 @@ export class TabBar extends Component {
 
   render() {
     return (
-      <BlurView blurType="dark" blurAmount={2} style={styles.tabs}>
+      <BlurView blurType="dark" blurAmount={12} style={[this.props.style, styles.tabs]}>
         {this.props.tabs.map((name, page) => {
           const isTabActive = this.props.activeTab === page;
           return this.renderTab(name, page, isTabActive, this.props.goToPage);
@@ -44,7 +52,7 @@ export class TabBar extends Component {
 
 const styles = StyleSheet.create({
   tabs: {
-    height: 70,
+    height: 54,
     flexDirection: 'row',
     justifyContent: 'space-around'
   },
@@ -54,12 +62,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   tabIcon: {
-    width: 48,
-    height: 36
+    width: 32,
+    height: 24
   },
   tabText: {
     color: '#fff',
-    fontSize: 12,
-    fontFamily: 'Avenir-Book'
+    fontSize: 11,
+    fontFamily: 'Avenir-Book',
+    marginTop: 2
   }
 });
