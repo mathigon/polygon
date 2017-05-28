@@ -3,49 +3,49 @@
     {
       "size" : "20x20",
       "idiom" : "iphone",
-      "filename" : "Artboard 1.png",
+      "filename" : "icon-40.png",
       "scale" : "2x"
     },
     {
       "size" : "20x20",
       "idiom" : "iphone",
-      "filename" : "Artboard 2.png",
+      "filename" : "icon-60.png",
       "scale" : "3x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "Artboard 3.png",
+      "filename" : "icon-small-2x.png",
       "scale" : "2x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "Artboard 4.png",
+      "filename" : "icon-80-2x-1.png",
       "scale" : "3x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "Artboard 5.png",
+      "filename" : "icon-80-2x.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "Artboard 6.png",
+      "filename" : "icon-60-2x.png",
       "scale" : "3x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "Artboard 6-1.png",
+      "filename" : "icon-60-2x-1.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "Artboard 7.png",
+      "filename" : "icon-60-3x.png",
       "scale" : "3x"
     }
   ],
