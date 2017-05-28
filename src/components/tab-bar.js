@@ -5,7 +5,7 @@
 
 
 import React, { Component } from 'react';
-import { TouchableOpacity, Text, View, StyleSheet, Image } from 'react-native';
+import { TouchableWithoutFeedback, Text, View, StyleSheet, Image } from 'react-native';
 import { BlurView } from 'react-native-blur';
 
 
@@ -28,12 +28,12 @@ export class TabBar extends Component {
 
   renderTab(name, page, isTabActive, onPressHandler) {
     let images = isTabActive ? ACTIVE_IMAGES : IMAGES;
-    return <TouchableOpacity style={{flex: 1 }} key={name} onPress={() => onPressHandler(page)}>
+    return <TouchableWithoutFeedback style={{flex: 1 }} key={name} onPress={() => onPressHandler(page)}>
       <View style={[styles.tab, {opacity: isTabActive ? 1 : 0.5}]}>
         <Image style={styles.tabIcon} source={images[page]}/>
         <Text style={styles.tabText}>{name}</Text>
       </View>
-    </TouchableOpacity>;
+    </TouchableWithoutFeedback>;
   }
 
   render() {

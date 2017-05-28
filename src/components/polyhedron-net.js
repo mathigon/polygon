@@ -20,7 +20,7 @@ export class PolyhedronNet extends Component {
       if (p.key in polygon.net) {
         let points = polygon.net[p.key];
         for (let i=0; i<points.length; ++i) {
-          let collected = (i < this.props.shapes[p.key].length);
+          let collected = (i < this.props.state.getShapeCount(p.key));
           let fill = collected ? p.color : '#00081D';
           paths.push(<Path key={p.key + '-' + i} d={points[i]} stroke="#fff" stroke-width="1" fill={fill}/>)
         }

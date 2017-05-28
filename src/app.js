@@ -14,12 +14,12 @@ import { BadgesView } from './views/badges-view'
 import { AboutView } from './views/about-view'
 import { CameraView } from './views/camera-view'
 import { ShareView } from './views/share-view'
-import { PuzzleView } from './views/puzzle-view'
+import { PowerupView } from './views/powerup-view'
 import { PolyhedronView } from './views/polyhedron-view'
 
 import { State } from './state.js'
 import { TabBar } from './components/tab-bar.js'
-import { PolygonModal, PolyhedronModal, BadgeModal } from './components/modals.js'
+import { PolygonModal, PolyhedronModal, PowerupModal, BadgeModal } from './components/modals.js'
 
 const BACKGROUND = require('../images/background.jpg');
 
@@ -38,7 +38,8 @@ export class App extends Component {
           <ScrollableTabView tabBarPosition="overlayBottom" renderTabBar={() => <TabBar/>} prerenderingSiblingsNumber={1}>
             <HomeView tabLabel="Polygons" navigator={navigator} state={this.state}/>
             <PolyhedraView tabLabel="Polyhedra" navigator={navigator} state={this.state}/>
-            <BadgesView tabLabel="Badges" navigator={navigator} state={this.state}/>
+            <BadgesView tabLabel="Badges" navigator={navigator} state={this.state}
+                        modal={this.refs.badgeModal}/>
             <AboutView tabLabel="More" navigator={navigator}/>
           </ScrollableTabView>
         </Image>;
@@ -49,8 +50,9 @@ export class App extends Component {
         return <CameraView navigator={navigator} state={this.state}/>;
       case 'Share':
         return <ShareView navigator={navigator} state={this.state}/>;
-      case 'Puzzle':
-        return <PuzzleView navigator={navigator} state={this.state}/>;
+      case 'Powerup':
+        return <PowerupView navigator={navigator} state={this.state}
+                            modal={this.refs.powerupModal}/>;
     }
   }
 
@@ -62,6 +64,7 @@ export class App extends Component {
                    renderScene={this.renderScene.bind(this)}/>
         <PolygonModal ref={'polygonModal'}/>
         <PolyhedronModal ref={'polyhedronModal'}/>
+        <PowerupModal ref={'powerupModal'} state={this.state}/>
         <BadgeModal ref={'badgeModal'}/>
       </View>
     );

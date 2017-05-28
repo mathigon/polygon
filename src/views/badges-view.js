@@ -5,10 +5,11 @@
 
 
 import React, { Component } from 'react';
-import { ScrollView, TouchableHighlight, Text, View, StyleSheet } from 'react-native';
-import NavigationBar from 'react-native-navbar';
+import { ScrollView, TouchableOpacity, Text, View, StyleSheet, Image } from 'react-native';
+import { NavBar } from '../components/navbar';
 
-const BADGES = require('../../data/badges.json');
+import BADGES from '../../data/badges.js';
+import BADGE_IMAGES from '../../images/badges/badges.js';
 
 
 export class BadgesView extends Component {
@@ -17,20 +18,23 @@ export class BadgesView extends Component {
     let badges = [];
     for (let b of BADGES) {
       badges.push(
-        <TouchableHighlight style={styles.badgeRowWrap} key={b.name}>
+        <TouchableOpacity style={styles.badgeRowWrap} key={b.key}
+                          onPress={() => { this.props.modal.open(b) }}>
           <View style={styles.badgeRow}>
-            <View style={styles.badgeIcon}/>
+            <Image source={BADGE_IMAGES[b.key]} style={styles.badgeIcon}/>
             <View style={styles.badgeText}>
               <Text style={styles.badgeTitle}>{b.name}</Text>
               <Text style={styles.badgeDescription}>{b.description}</Text>
             </View>
           </View>
-        </TouchableHighlight>);
+        </TouchableOpacity>);
     }
 
-    return (<View>
-      <NavigationBar title={{title: 'Badges', style: styles.title}} statusBar={{style: 'light-content'}} tintColor='#1F2E3E'/>
-      <ScrollView contentContainerStyle={styles.view}>{badges}</ScrollView>
+    return (<View style={{flex: 1}}>
+      <NavBar title="Badges"/>
+      <ScrollView contentContainerStyle={styles.view}>
+        <View style={{flex: 1, paddingTop: 10, paddingBottom: 60}}>{badges}</View>
+      </ScrollView>
     </View>);
   }
 
@@ -38,30 +42,21 @@ export class BadgesView extends Component {
 
 
 const styles = StyleSheet.create({
-  title: {
-    textAlign: 'center',
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#fff',
-    fontFamily: 'Avenir-Book'
-  },
   grid: {
     alignItems: 'center',
-    paddingBottom: 60,
     justifyContent: 'center',
     flexDirection: 'row',
     flexWrap: 'wrap',
     flexGrow: 1
   },
-
   badgeRowWrap: {
-    height: 81,
+    height: 91,
     flexGrow: 1
   },
   badgeRow: {
     flexDirection: 'row',
-    marginLeft: 12,
-    marginRight: 12,
+    marginLeft: 20,
+    marginRight: 20,
     paddingTop: 10,
     paddingBottom: 10,
     borderBottomColor: 'rgba(255,255,255,0.3)',
@@ -70,10 +65,8 @@ const styles = StyleSheet.create({
   },
   badgeIcon: {
     width: 60,
-    height: 60,
-    backgroundColor: '#c00',
-    borderRadius: 30,
-    marginRight: 10
+    height: 70,
+    marginRight: 20
   },
   badgeText: {
     flexGrow: 1
@@ -81,7 +74,7 @@ const styles = StyleSheet.create({
   badgeTitle: {
     color: 'white',
     fontSize: 18,
-    fontWeight: '500',
+    fontWeight: '600',
     fontFamily: 'Avenir-Book'
   },
   badgeDescription: {

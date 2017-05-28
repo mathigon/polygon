@@ -5,7 +5,7 @@
 
 
 import React, { Component } from 'react';
-import { Image, TouchableHighlight, Text, View, StyleSheet } from 'react-native';
+import { Image, TouchableOpacity, Text, View, StyleSheet } from 'react-native';
 
 const POLYGONS = require('../../data/polygons.json');
 const POLYGON_IMAGES = require('../../images/polygons/polygons.js');
@@ -22,7 +22,7 @@ export class HomeView extends Component {
     let polygons = [];
     for (let p of POLYGONS) {
       let top = p.key == 3 ? 34 : p.key == 5 ? 30 : 26;
-      let count = this.props.state.shapes[p.key].length;
+      let count = this.props.state.getShapeCount(p.key);
       polygons.push(<View style={styles.tile} key={p.key}>
         <Image source={POLYGON_IMAGES[p.key]}/>
         <Text style={styles.label}>{p.name}s</Text>
@@ -35,9 +35,9 @@ export class HomeView extends Component {
       <View style={styles.grid}>{polygons}</View>
       <Text style={styles.title}>Collect more shapes:</Text>
       <View style={styles.addButtons}>
-        <TouchableHighlight style={styles.addButton} onPress={() => { this.props.navigator.push({name: 'Camera'}) }}><Image source={ICONS[0]}/></TouchableHighlight>
-        <TouchableHighlight style={styles.addButton}><Image source={ICONS[1]}/></TouchableHighlight>
-        <TouchableHighlight style={styles.addButton} onPress={() => { this.props.state.addShape('s-3-' + Math.random()); }}><Image source={ICONS[2]}/></TouchableHighlight>
+        <TouchableOpacity style={styles.addButton} onPress={() => { this.props.navigator.push({name: 'Camera'}) }}><Image source={ICONS[0]}/></TouchableOpacity>
+        <TouchableOpacity style={styles.addButton}><Image source={ICONS[1]}/></TouchableOpacity>
+        <TouchableOpacity style={styles.addButton} onPress={() => { this.props.navigator.push({name: 'Powerup'}) }}><Image source={ICONS[2]}/></TouchableOpacity>
       </View>
     </View>);
   }
@@ -106,6 +106,5 @@ const styles = StyleSheet.create({
     fontSize: 22,
     opacity: 0.9,
     fontFamily: 'Avenir-Book'
-  },
-
+  }
 });

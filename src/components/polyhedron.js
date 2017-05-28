@@ -22,10 +22,10 @@ class Polyhedron {
     this.net = data.net || {};
   }
 
-  progress(shapes) {
+  progress(state) {
     let collected = 0;
     for (let s of Object.keys(this.faces)) {
-      collected += Math.min(shapes[s].length, this.faces[s]);
+      collected += Math.min(state.getShapeCount(s), this.faces[s]);
     }
     return collected / this.total;
   }

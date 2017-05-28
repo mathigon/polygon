@@ -5,7 +5,8 @@
 
 
 import React, { Component } from 'react';
-import { Image, ScrollView, TouchableHighlight, Text, View, StyleSheet } from 'react-native';
+import { Image, ScrollView, TouchableOpacity, Text, View, StyleSheet } from 'react-native';
+import { NavBar } from '../components/navbar';
 import ImageSequence from 'react-native-image-sequence';
 
 import FALLBACKS from '../../images/placeholders/placeholders.js';
@@ -34,26 +35,29 @@ export class PolyhedraView extends Component {
   renderGrid(polyhedra, height) {
     let result = [];
     for (let p of polyhedra) {
-      let progress = p.progress(this.props.state.shapes);
+      let progress = p.progress(this.props.state);
       result.push(
-        <TouchableHighlight style={[styles.tile, {height}]} key={p.key} onPress={() => { this.goToView(p) }}>
+        <TouchableOpacity style={[styles.tile, {height}]} key={p.key} onPress={() => { this.goToView(p) }}>
           <View style={{alignItems: 'center'}}>
             {this.renderImage(p.key, progress)}
             <Text style={styles.label}>{p.shortName}</Text>
             {this.renderProgressBar(progress)}
           </View>
-        </TouchableHighlight>);
+        </TouchableOpacity>);
     }
     return result;
   }
 
   render() {
-    return (<ScrollView contentContainerStyle={styles.view}>
-      <Text style={[styles.title, {marginTop: 40}]}>Platonic Solids</Text>
-      <View style={styles.grid}>{this.renderGrid(PlatonicSolids, 110)}</View>
-      <Text style={styles.title}>Archimedean Solids</Text>
-      <View style={styles.grid}>{this.renderGrid(ArchimedeanSolids, 135)}</View>
-    </ScrollView>);
+    return (<View style={{flex: 1}}>
+      <NavBar title="Polyhedra"/>
+      <ScrollView contentContainerStyle={styles.view}>
+        <Text style={[styles.title, {marginTop: 40}]}>Platonic Solids</Text>
+        <View style={styles.grid}>{this.renderGrid(PlatonicSolids, 110)}</View>
+        <Text style={styles.title}>Archimedean Solids</Text>
+        <View style={styles.grid}>{this.renderGrid(ArchimedeanSolids, 135)}</View>
+      </ScrollView>
+    </View>);
   }
 }
 

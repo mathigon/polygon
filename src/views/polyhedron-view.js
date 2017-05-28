@@ -6,7 +6,7 @@
 
 import React, { Component } from 'react';
 import { ScrollView, Text, Image, StyleSheet } from 'react-native';
-import NavigationBar from 'react-native-navbar';
+import { NavBar } from '../components/navbar';
 import ImageSequence from 'react-native-image-sequence';
 
 import { PolyhedronNet } from '../components/polyhedron-net.js';
@@ -19,7 +19,7 @@ import ROTATIONS from '../../images/rotations.js';
 export class PolyhedronView extends Component {
 
   renderMoreText(polyhedron) {
-    let progress = polyhedron.progress(this.props.state.shapes);
+    let progress = polyhedron.progress(this.props.state);
     let missing = Math.round((1 - progress) * polyhedron.total);
     if (missing == 1) return <Text style={styles.text}>You need just one more shape!</Text>;
     if (missing > 1) return <Text style={styles.text}>You need {missing} more shapes!</Text>;
@@ -36,17 +36,12 @@ export class PolyhedronView extends Component {
   render() {
     let p = this.props.polyhedron;
 
-    let backButton = {
-      title: 'Back',
-      handler: () => { this.props.navigator.pop(); }
-    };
-
     return (
       <Image source={BACKGROUND} style={{flex: 1, width: null, height: null}} resizeMode="cover">
-        <NavigationBar title={{title: p.name, style: {color: '#fff', fontSize: 16, fontWeight: 'bold'}}} leftButton={backButton} statusBar={{style: 'light-content'}} tintColor='#1F2E3E'/>
+        <NavBar title={p.name} navigator={this.props.navigator}/>
         <ScrollView contentContainerStyle={{alignItems: 'center', paddingBottom: 36}}>
           <ImageSequence images={ROTATIONS[p.key]} style={{width: 320, height: 320, margin: 20}}/>
-          <PolyhedronNet p={p} shapes={this.props.state.shapes}/>
+          <PolyhedronNet p={p} state={this.props.state}/>
           {this.renderMoreText(p)}
           {this.renderDescription(p)}
           <Text style={styles.text}>{p.description}</Text>

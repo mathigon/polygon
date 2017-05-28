@@ -14,16 +14,15 @@ Run the App in iOS simulator using `react-native run-ios`.
 
 ## TODO list
 
-[P1] Power up screen, Badge Icons
-[P1] About screen + subscreens
-[P2] Nicer styles (modals, logo, etc.)
+[P1] Badges (disabled, modal content, alerts)
+[P1] Powerups locked style + fn
+[P1] Check all styles, CSS cleanup
 
+[P2] About screen + subscreens
 [P2] Polyhedron screens (Images, SVG download)
-[P2] Badges modals + validation
-[P2] Puzzle screens + validation
+[P2] Generate many QR codes
 
-[P3] Generate many QR codes
-[P3] Tutorial, help messages accross app
+[P3] Tutorial, help messages across app
 [P3] Swap shapes screen
 
 [P4] Android support, Web version?

@@ -8,6 +8,7 @@ import { Alert, AsyncStorage } from 'react-native';
 import { Polyhedra } from './components/polyhedron';
 
 const POLYGONS = require('../data/polygons.json');
+import POWERUPS from '../data/powerups';
 
 
 export class State {
@@ -15,13 +16,13 @@ export class State {
   constructor(app) {
     this.shapes = {3: [''], 4: [''], 5: [''], 6: [''], 8: [''], 10: ['']};
     this.polyhedra = [];
-    this.powerups = {};
+    this.powerups = [];
 
     this._app = app;
 
-    this._loadAsync('shapes');
-    this._loadAsync('polyhedra');
     this._loadAsync('powerups');
+    this._loadAsync('polyhedra');
+    this._loadAsync('shapes');
   }
 
   _loadAsync(key) {
@@ -36,7 +37,7 @@ export class State {
 
   checkCompletedPolyhedra() {
     for (let p of Polyhedra) {
-      let completed = p.progress(this.shapes) >= 1;
+      let completed = p.progress(this) >= 1;
       let previous = this.polyhedra.includes(p.name);
       if (completed && !previous) {
         this.polyhedra.push(p.name);
@@ -45,6 +46,16 @@ export class State {
     }
     AsyncStorage.setItem('polyhedra', JSON.stringify(this.polyhedra));
   }
+
+  getShapeCount(shape) {
+    let n = this.shapes[shape].length;
+    for (let p of POWERUPS) {
+      if (this.powerups.includes(p.key)) n = p.modifier(+shape, n) || n;
+    }
+    return n;
+  }
+
+  // ---------------------------------------------------------------------------
 
   addShape(shape) {
     let [_, id, key] = (shape || '').split('-');
@@ -69,8 +80,12 @@ export class State {
     this.checkCompletedPolyhedra();
   }
 
-  addPowerup(key) {
-    // TODO
+  addPowerup(p) {
+    this.powerups.push(p.key);
+    AsyncStorage.setItem('powerups', JSON.stringify(this.powerups));
+
+    this._app.forceUpdate();
+    this.checkCompletedPolyhedra();
   }
 
 }

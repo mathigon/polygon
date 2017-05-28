@@ -5,14 +5,16 @@
 
 
 import React, { Component } from 'react';
-import { Image, ScrollView, TouchableHighlight, Text, View, StyleSheet } from 'react-native';
+import { ScrollView, View, StyleSheet } from 'react-native';
+import { NavBar } from '../components/navbar';
 
 
 export class AboutView extends Component {
 
   render() {
-    return (<View style={styles.view}>
-      <Text style={styles.title}>More</Text>
+    return (<View>
+      <NavBar title="More"/>
+      <ScrollView contentContainerStyle={styles.view}/>
     </View>);
   }
 }
@@ -21,14 +23,5 @@ export class AboutView extends Component {
 const styles = StyleSheet.create({
   view: {
     alignItems: 'center',
-  },
-  title: {
-    marginTop: 20,
-    marginBottom: 10,
-    textAlign: 'center',
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#fff',
-    fontFamily: 'Avenir-Book'
   }
 });
