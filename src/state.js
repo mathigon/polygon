@@ -81,12 +81,12 @@ export class State {
       return;
     }
 
-    if (this.shapes[id].includes(+key)) {
+    if (this.shapes[id].includes(key)) {
       Alert.alert('Error', `You’ve already added this ${polygon.name} before!`);
       return;
     }
 
-    this.shapes[id].push(+key);
+    this.shapes[id].push(key);
 
     AsyncStorage.setItem('shapes', JSON.stringify(this.shapes));
     this._app.forceUpdate();

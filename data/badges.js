@@ -1,6 +1,6 @@
 let shapes = [3, 4, 5, 6, 8, 10];
 
-function count(state) { return shapes.map(s => state.shapes[s]); }
+function count(state) { return shapes.map(s => state.shapes[s].length); }
 function sum(array) { return array.reduce((a, b) => a + b, 0); }
 
 export default [

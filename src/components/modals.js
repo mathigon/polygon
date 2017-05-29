@@ -116,7 +116,7 @@ export class BadgeModal extends AbstractModal {
     if (!this.data) return null;
     return (<View style={styles.modalWrap}>
       <Image source={BADGE_IMAGES[this.data.key]} style={[styles.modalImage, {width: 60, height: 70}]}/>
-      /<Text style={styles.modalTitle}>{this.data.name}</Text>
+      <Text style={styles.modalTitle}>{this.data.name}</Text>
       <Text style={styles.modalText}>{this.data.bio}</Text>
     </View>);
   }
