@@ -2,7 +2,7 @@ export default [
   {
     // This one is at the end, so that we multiply by 3 last!
     key: 1,
-    name: "Three-way Mirror",
+    name: "Three-way mirror",
     description: "Every triangle you collect counts as three.",
     question: "How many Platonic solids are there?",
     answer: 5,
@@ -30,28 +30,28 @@ export default [
     modifier(shape, n) { if (shape === 6) return n + 6; }
   }, {
     key: 5,
-    name: "Three, Four, Five",
+    name: "Three, four, five (Part 1)",
     description: "Get 3 additional squares and pentagons.",
     question: "Which molecule has the shape of a Truncated Icosahedron?",
-    answer: 3,
+    answer: 'C60',
     modifier(shape, n) { if (shape === 4 || shape === 5) return n + 3; }
   }, {
     key: 6,
-    name: "Three, Four, Five (again)",
+    name: "Three, four, five (Part 2)",
     description: "Get 5 additional triangles and squares.",
     question: "?",
     answer: 3,
     modifier(shape, n) { if (shape === 3 || shape === 4) return n + 5; }
   }, {
     key: 7,
-    name: "***",
+    name: "Octagonal",
     description: "Get 3 additional octagons.",
     question: "?",
     answer: 3,
     modifier(shape, n) { if (shape === 8) return n + 3; }
   }, {
     key: 8,
-    name: "****",
+    name: "Pieces of eight",
     description: "Get 4 additional triangles and hexagons.",
     question: "?",
     answer: 3,
@@ -72,7 +72,7 @@ export default [
     modifier(shape, n) { if (shape === 10) return n + 10; }
   }, {
     key: 11,
-    name: "*****",
+    name: "Ten more squares",
     description: "Get 10 additional squares.",
     question: "?",
     answer: 3,

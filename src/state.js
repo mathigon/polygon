@@ -11,6 +11,8 @@ import Badges from '../data/badges';
 const POLYGONS = require('../data/polygons.json');
 import POWERUPS from '../data/powerups';
 
+// Ensure that *3 is run at the end!
+const Powerups = POWERUPS.slice(0).reverse();
 
 export class State {
 
@@ -62,7 +64,7 @@ export class State {
 
   getShapeCount(shape) {
     let n = this.shapes[shape].length;
-    for (let p of POWERUPS) {
+    for (let p of Powerups) {
       if (this.powerups.includes(p.key)) n = p.modifier(+shape, n) || n;
     }
     return n;

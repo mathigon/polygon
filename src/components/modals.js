@@ -74,7 +74,7 @@ export class PolyhedronModal extends AbstractModal {
 }
 
 export class PowerupModal extends AbstractModal {
-  get height() { return 360; }
+  get height() { return 320; }
   checkAnswer(e) {
     let isNumber = (typeof this.data.answer === 'number');
     let v = isNumber ? +e.nativeEvent.text : e.nativeEvent.text.toLowerCase();
@@ -92,10 +92,11 @@ export class PowerupModal extends AbstractModal {
     let isNumber = (typeof this.data.answer === 'number');
     let keyboard = isNumber ? 'numbers-and-punctuation' : 'default';
 
+    // <Text style={styles.modalText}>{this.data.description}</Text>
+
     return (<View style={styles.modalWrap}>
       <Image source={POWERUP_IMAGES[this.data.key - 1]} style={styles.modalImage}/>
       <Text style={styles.modalTitle}>{this.data.name}</Text>
-      <Text style={styles.modalText}>{this.data.description}</Text>
       <Text style={styles.modalText}>{this.data.question}</Text>
       <ScrollView scrollEnabled={false} contentContainerStyle={styles.main}>
         <TextInput placeholder="???" returnKeyType="go" keyboardType={keyboard}
@@ -115,7 +116,7 @@ export class BadgeModal extends AbstractModal {
     if (!this.data) return null;
     return (<View style={styles.modalWrap}>
       <Image source={BADGE_IMAGES[this.data.key]} style={[styles.modalImage, {width: 60, height: 70}]}/>
-      <Text style={styles.modalTitle}>{this.data.name}</Text>
+      /<Text style={styles.modalTitle}>{this.data.name}</Text>
       <Text style={styles.modalText}>{this.data.bio}</Text>
     </View>);
   }

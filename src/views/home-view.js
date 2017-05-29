@@ -6,6 +6,7 @@
 
 import React, { Component } from 'react';
 import { Image, TouchableOpacity, Text, View, StyleSheet } from 'react-native';
+import { baseStyles } from '../styles';
 
 const POLYGONS = require('../../data/polygons.json');
 const POLYGON_IMAGES = require('../../images/polygons/polygons.js');
@@ -23,17 +24,17 @@ export class HomeView extends Component {
     for (let p of POLYGONS) {
       let top = p.key == 3 ? 34 : p.key == 5 ? 30 : 26;
       let count = this.props.state.getShapeCount(p.key);
-      polygons.push(<View style={styles.tile} key={p.key}>
+      polygons.push(<View style={[baseStyles.tileWrap, {height: 110}]} key={p.key}>
         <Image source={POLYGON_IMAGES[p.key]}/>
-        <Text style={styles.label}>{p.name}s</Text>
-        <View style={[styles.badge, {top}]}><Text style={styles.badgeText}>{count}</Text></View>
+        <Text style={baseStyles.tileLabel}>{p.name}s</Text>
+        <Text style={[baseStyles.heading, styles.count, {top}]}>{count}</Text>
       </View>);
     }
 
-    return (<View style={styles.view}>
+    return (<View style={baseStyles.scrollView}>
       <Image style={styles.logo} source={LOGO}/>
-      <View style={styles.grid}>{polygons}</View>
-      <Text style={styles.title}>Collect more shapes:</Text>
+      <View style={baseStyles.grid}>{polygons}</View>
+      <Text style={baseStyles.title}>Collect more shapes:</Text>
       <View style={styles.addButtons}>
         <TouchableOpacity style={styles.addButton} onPress={() => { this.props.navigator.push({name: 'Camera'}) }}><Image source={ICONS[0]}/></TouchableOpacity>
         <TouchableOpacity style={styles.addButton}><Image source={ICONS[1]}/></TouchableOpacity>
@@ -45,45 +46,12 @@ export class HomeView extends Component {
 
 
 const styles = StyleSheet.create({
-  view: {
-    alignItems: 'center',
-  },
-  title: {
-    marginTop: 20,
-    marginBottom: 10,
-    textAlign: 'center',
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#fff',
-    fontFamily: 'Avenir-Book'
-  },
-  grid: {
-    justifyContent: 'center',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-  },
-  tile: {
-    margin: 8,
-    width: 100,
-    height: 110,
-    alignItems: 'center'
-  },
-  label: {
-    marginTop: 5,
-    fontWeight: 'bold',
-    color: '#fff',
-    textAlign: 'center',
-    fontSize: 14,
-    fontFamily: 'Avenir-Book'
-  },
-
   logo: {
     width: 300,
     height: 100,
     marginTop: 30,
     marginBottom: 30
   },
-
   addButtons: {
     flexDirection: 'row'
   },
@@ -92,19 +60,11 @@ const styles = StyleSheet.create({
     height: 60,
     margin: 10
   },
-
-  badge: {
+  count: {
     position: 'absolute',
-    left: 32,
-    width: 36,
-    alignItems: 'center'
-  },
-  badgeText: {
-    color: '#fff',
-    backgroundColor: 'transparent',
-    fontWeight: 'bold',
     fontSize: 22,
+    width: 100,
     opacity: 0.9,
-    fontFamily: 'Avenir-Book'
+    textAlign: 'center'
   }
 });

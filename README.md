@@ -14,11 +14,9 @@ Finally, start the App in iOS simulator by running `react-native run-ios`.
 
 ## TODO list
 
-[P1] Check all styles, CSS cleanup
-[P1] Powerups (locked, bw, questions)
-[P1] Sample video and MoMath email
-
+* Powerups: locked, b/w, better questions
 * About screen + subscreens
+
 * Polyhedron screens (Images, SVG download)
 * Tutorial, help messages across app
 * Swap shapes screen

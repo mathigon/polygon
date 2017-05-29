@@ -6,8 +6,9 @@
 
 import React, { Component } from 'react';
 import { Vibration, View, StyleSheet } from 'react-native';
-import { NavBar } from '../components/navbar'
 import Camera from 'react-native-camera';
+import { NavBar } from '../components/navbar'
+import { baseStyles } from '../styles';
 
 let BLOCKED = false;
 
@@ -29,7 +30,7 @@ export class CameraView extends Component {
   }
 
   render() {
-    return (<View style={styles.view}>
+    return (<View style={baseStyles.dynamicView}>
       <NavBar title="Camera" navigator={this.props.navigator}/>
       <Camera onBarCodeRead={x => { this.onBarCodeRead(x); }} style={styles.camera}>
         <View style={styles.rectangle}/>
@@ -39,11 +40,6 @@ export class CameraView extends Component {
 }
 
 const styles = StyleSheet.create({
-  view: {
-    flex: 1,
-    height: null,
-    width: null
-  },
   camera: {
     alignItems: 'center',
     backgroundColor: '#000',
