@@ -15,13 +15,12 @@ Finally, start the App in iOS simulator by running `react-native run-ios`.
 ## TODO list
 
 * Powerups: locked, b/w, better questions
-* About screen + subscreens
-
-* Polyhedron screens (Images, SVG download)
+* About screen pages
+* Better Polyhedron screens: images, SVG download
 * Tutorial, help messages across app
-* Swap shapes screen
 
-* Code signing and App Store release
+* Code signing, testing, App Store release
+* Swap shapes screen
 * Android support, Web version?
 
 * Nicer and customisable QR codes
