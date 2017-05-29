@@ -15,6 +15,7 @@ Finally, start the App in iOS simulator by running `react-native run-ios`.
 ## TODO list
 
 * Powerups: locked, b/w, better questions
+* Images in polygon modals link to detail view
 * About screen pages
 * Better Polyhedron screens: images, SVG download
 * Tutorial, help messages across app

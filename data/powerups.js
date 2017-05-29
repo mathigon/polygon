@@ -33,7 +33,7 @@ export default [
     name: "Three, four, five (Part 1)",
     description: "Get 3 additional squares and pentagons.",
     question: "Which molecule has the shape of a Truncated Icosahedron?",
-    answer: 'C60',
+    answer: 'c60',
     modifier(shape, n) { if (shape === 4 || shape === 5) return n + 3; }
   }, {
     key: 6,
