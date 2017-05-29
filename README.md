@@ -5,30 +5,29 @@ A mobile app for mathematics museums and science centers. Visitors can discover 
 
 ## Development
 
-To install react native, follow the instructions in https://facebook.github.io/react-native/docs/getting-started.html.
+First, you need to install XCode and React Native, by following the instructions at https://facebook.github.io/react-native/docs/getting-started.html.
 
-Install all dependencies of this app using `npm install`.
+Now install all dependencies of this app by running `npm install`.
 
-Run the App in iOS simulator using `react-native run-ios`.
+Finally, start the App in iOS simulator by running `react-native run-ios`.
 
 
 ## TODO list
 
-[P1] Badges (disabled, modal content, alerts)
-[P1] Powerups locked style + fn
 [P1] Check all styles, CSS cleanup
+[P1] Powerups (locked, bw, questions)
+[P1] Sample video and MoMath email
 
-[P2] About screen + subscreens
-[P2] Polyhedron screens (Images, SVG download)
-[P2] Generate many QR codes
+* About screen + subscreens
+* Polyhedron screens (Images, SVG download)
+* Tutorial, help messages across app
+* Swap shapes screen
 
-[P3] Tutorial, help messages across app
-[P3] Swap shapes screen
+* Code signing and App Store release
+* Android support, Web version?
 
-[P4] Android support, Web version?
-[P4] Code signing and App Store release
-[P4] Interactive rotations, folding animation
-[P4] Nicer and customisable QR codes
+* Nicer and customisable QR codes
+* Interactive rotations, folding animation
 
 
 ## 3d Model Generation

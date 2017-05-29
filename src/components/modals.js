@@ -110,11 +110,11 @@ export class PowerupModal extends AbstractModal {
 }
 
 export class BadgeModal extends AbstractModal {
-  get height() { return 360; }
+  get height() { return 440; }
   renderBody() {
     if (!this.data) return null;
     return (<View style={styles.modalWrap}>
-      <Image source={BADGE_IMAGES[this.data.key]} style={styles.modalImage}/>
+      <Image source={BADGE_IMAGES[this.data.key]} style={[styles.modalImage, {width: 60, height: 70}]}/>
       <Text style={styles.modalTitle}>{this.data.name}</Text>
       <Text style={styles.modalText}>{this.data.bio}</Text>
     </View>);

@@ -1,5 +1,13 @@
 export default [
   {
+    // This one is at the end, so that we multiply by 3 last!
+    key: 1,
+    name: "Three-way Mirror",
+    description: "Every triangle you collect counts as three.",
+    question: "How many Platonic solids are there?",
+    answer: 5,
+    modifier(shape, n) { if (shape === 3) return n * 3; }
+  }, {
     key: 2,
     name: "Four walls",
     description: "Get four additional squares.",
@@ -76,13 +84,5 @@ export default [
     question: "?",
     answer: 3,
     modifier(shape, n) { if (shape === 3) return n + 9; }
-  }, {
-    // This one is at the end, so that we multiply by 3 last!
-    key: 1,
-    name: "Three-way Mirror",
-    description: "Every triangle you collect counts as three.",
-    question: "How many Platonic solids are there?",
-    answer: 5,
-    modifier(shape, n) { if (shape === 3) return n * 3; }
   }
 ]

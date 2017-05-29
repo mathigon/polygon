@@ -9,15 +9,23 @@ import { Vibration, View, StyleSheet } from 'react-native';
 import { NavBar } from '../components/navbar'
 import Camera from 'react-native-camera';
 
+let BLOCKED = false;
+
 
 export class CameraView extends Component {
 
   onBarCodeRead(result) {
+    if (BLOCKED) return;
+    BLOCKED = true;
+
     setTimeout(() => {
       Vibration.vibrate();
       this.props.navigator.pop();
       this.props.state.addShape(result.data);
     }, 1000);
+
+    // Hacky way to avoid onBarCodeRead triggering multiple times.
+    setTimeout(() => { BLOCKED = false; }, 5000);
   }
 
   render() {

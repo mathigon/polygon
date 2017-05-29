@@ -10,24 +10,40 @@ import { NavBar } from '../components/navbar';
 
 import BADGES from '../../data/badges.js';
 import BADGE_IMAGES from '../../images/badges/badges.js';
+import BADGE_INACTIVE_IMAGES from '../../images/badges-bw/badges.js';
 
 
 export class BadgesView extends Component {
 
+  renderActiveBadge(b) {
+    return <TouchableOpacity style={styles.badgeRowWrap} key={b.key}
+                      onPress={() => { this.props.modal.open(b) }}>
+      <View style={styles.badgeRow}>
+        <Image source={BADGE_IMAGES[b.key]} style={styles.badgeIcon}/>
+        <View style={styles.badgeText}>
+          <Text style={styles.badgeTitle}>{b.name}</Text>
+          <Text style={styles.badgeDescription}>{b.description}</Text>
+        </View>
+      </View>
+    </TouchableOpacity>;
+  }
+
+  renderInactiveBadge(b) {
+    return <View key={b.key} style={[styles.badgeRowWrap, styles.badgeRow]}>
+      <Image source={BADGE_INACTIVE_IMAGES[b.key]} style={[styles.badgeIcon, {opacity: .8}]}/>
+      <View style={styles.badgeText}>
+        <Text style={styles.badgeTitle}>{b.name}</Text>
+        <Text style={styles.badgeDescription}>{b.description}</Text>
+      </View>
+    </View>;
+  }
+
   render() {
     let badges = [];
     for (let b of BADGES) {
-      badges.push(
-        <TouchableOpacity style={styles.badgeRowWrap} key={b.key}
-                          onPress={() => { this.props.modal.open(b) }}>
-          <View style={styles.badgeRow}>
-            <Image source={BADGE_IMAGES[b.key]} style={styles.badgeIcon}/>
-            <View style={styles.badgeText}>
-              <Text style={styles.badgeTitle}>{b.name}</Text>
-              <Text style={styles.badgeDescription}>{b.description}</Text>
-            </View>
-          </View>
-        </TouchableOpacity>);
+      let isActive = this.props.state.badges.includes(b.key);
+      let row = isActive ? this.renderActiveBadge(b) : this.renderInactiveBadge(b);
+      badges.push(row);
     }
 
     return (<View style={{flex: 1}}>

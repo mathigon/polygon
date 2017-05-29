@@ -6,6 +6,7 @@
 
 import { Alert, AsyncStorage } from 'react-native';
 import { Polyhedra } from './components/polyhedron';
+import Badges from '../data/badges';
 
 const POLYGONS = require('../data/polygons.json');
 import POWERUPS from '../data/powerups';
@@ -17,9 +18,11 @@ export class State {
     this.shapes = {3: [''], 4: [''], 5: [''], 6: [''], 8: [''], 10: ['']};
     this.polyhedra = [];
     this.powerups = [];
+    this.badges = [];
 
     this._app = app;
 
+    this._loadAsync('badges');
     this._loadAsync('powerups');
     this._loadAsync('polyhedra');
     this._loadAsync('shapes');
@@ -38,13 +41,23 @@ export class State {
   checkCompletedPolyhedra() {
     for (let p of Polyhedra) {
       let completed = p.progress(this) >= 1;
-      let previous = this.polyhedra.includes(p.name);
+      let previous = this.polyhedra.includes(p.key);
       if (completed && !previous) {
-        this.polyhedra.push(p.name);
+        this.polyhedra.push(p.key);
         this._app.refs.polyhedronModal.queue(p);
       }
     }
     AsyncStorage.setItem('polyhedra', JSON.stringify(this.polyhedra));
+  }
+
+  checkCompletedBadges() {
+    for (let b of Badges) {
+      if (b.validate(this) && !this.badges.includes(b.key)) {
+        this.badges.push(b.key);
+        this._app.refs.badgeModal.queue(b);
+      }
+    }
+    AsyncStorage.setItem('badges', JSON.stringify(this.badges));
   }
 
   getShapeCount(shape) {
@@ -78,6 +91,7 @@ export class State {
 
     this._app.refs.polygonModal.open(polygon);
     this.checkCompletedPolyhedra();
+    this.checkCompletedBadges();
   }
 
   addPowerup(p) {
@@ -86,6 +100,7 @@ export class State {
 
     this._app.forceUpdate();
     this.checkCompletedPolyhedra();
+    this.checkCompletedBadges();
   }
 
 }
