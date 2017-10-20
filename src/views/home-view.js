@@ -12,9 +12,8 @@ const POLYGONS = require('../../data/polygons.json');
 const POLYGON_IMAGES = require('../../images/polygons/polygons.js');
 const LOGO = require('../../images/logo.png');
 
-const ICONS = [require('../../images/icons/camera.png'),
-  require('../../images/icons/exchange.png'),
-  require('../../images/icons/puzzle.png')];
+const ADD_CAMERA = require('../../images/icons/add-camera.png');
+const ADD_POWERUP = require('../../images/icons/add-powerup.png');
 
 
 export class HomeView extends Component {
@@ -22,7 +21,7 @@ export class HomeView extends Component {
   render() {
     let polygons = [];
     for (let p of POLYGONS) {
-      let top = p.key == 3 ? 34 : p.key == 5 ? 30 : 26;
+      let top = p.key === 3 ? 34 : p.key === 5 ? 30 : 26;
       let count = this.props.state.getShapeCount(p.key);
       polygons.push(<View style={[baseStyles.tileWrap, {height: 110}]} key={p.key}>
         <Image source={POLYGON_IMAGES[p.key]}/>
@@ -34,12 +33,12 @@ export class HomeView extends Component {
     return (<View style={baseStyles.scrollView}>
       <Image style={styles.logo} source={LOGO}/>
       <View style={baseStyles.grid}>{polygons}</View>
-      <Text style={baseStyles.title}>Collect more shapes:</Text>
-      <View style={styles.addButtons}>
-        <TouchableOpacity style={styles.addButton} onPress={() => { this.props.navigator.push({name: 'Camera'}) }}><Image source={ICONS[0]}/></TouchableOpacity>
-        <TouchableOpacity style={styles.addButton}><Image source={ICONS[1]}/></TouchableOpacity>
-        <TouchableOpacity style={styles.addButton} onPress={() => { this.props.navigator.push({name: 'Powerup'}) }}><Image source={ICONS[2]}/></TouchableOpacity>
-      </View>
+      <TouchableOpacity style={styles.addButton} onPress={() => { this.props.navigation.navigate('Camera') }} activeOpacity={1}>
+        <Image style={styles.addButtonImage} source={ADD_CAMERA}/>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.addButton} onPress={() => { this.props.navigation.navigate('Powerup') }} activeOpacity={1}>
+        <Image style={styles.addButtonImage} source={ADD_POWERUP}/>
+      </TouchableOpacity>
     </View>);
   }
 }
@@ -52,13 +51,11 @@ const styles = StyleSheet.create({
     marginTop: 30,
     marginBottom: 30
   },
-  addButtons: {
-    flexDirection: 'row'
-  },
   addButton: {
-    width: 60,
-    height: 60,
-    margin: 10
+    width: 220,
+    height: 48,
+    margin: 10,
+    opacity: 0.6
   },
   count: {
     position: 'absolute',

@@ -16,12 +16,12 @@ export class NavBar extends Component {
     const title = {title: this.props.title, style: styles.title};
     const color = this.props.color || '#1F2E3E';
 
-    if (!this.props.navigator) {
+    if (!this.props.navigation) {
       return <NavigationBar title={title} tintColor={color}
                             statusBar={{style: 'light-content'}}/>;
     }
 
-    const back = <TouchableWithoutFeedback onPress={() => this.props.navigator.pop()}>
+    const back = <TouchableWithoutFeedback onPress={() => this.props.navigation.goBack()}>
       <Image source={BACK_ICON} style={styles.back} resizeMode="cover"/>
     </TouchableWithoutFeedback>;
 

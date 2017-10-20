@@ -18,7 +18,7 @@ import { PlatonicSolids, ArchimedeanSolids } from '../components/polyhedron.js'
 
 export class PolyhedraView extends Component {
   goToView(p) {
-    this.props.navigator.push({name: 'Polyhedron', polyhedron: p});
+    this.props.navigation.navigate('Polyhedron', {polyhedron: p});
   }
 
   renderProgressBar(progress) {
@@ -38,7 +38,7 @@ export class PolyhedraView extends Component {
     for (let p of polyhedra) {
       let progress = p.progress(this.props.state);
       result.push(
-        <TouchableOpacity style={[baseStyles.tileWrap, {height}]} key={p.key} onPress={() => { this.goToView(p) }}>
+        <TouchableOpacity style={[baseStyles.tileWrap, {height}]} key={p.key} onPress={() => { this.goToView(p) }} activeOpacity={0.5}>
           <View style={baseStyles.tile}>
             {this.renderImage(p.key, progress)}
             <Text style={baseStyles.tileLabel}>{p.shortName}</Text>
@@ -52,13 +52,11 @@ export class PolyhedraView extends Component {
   render() {
     return (<View style={{flex: 1}}>
       <NavBar title="Polyhedra"/>
-      <ScrollView contentContainerStyle={baseStyles.scrollView}>
-        <View style={baseStyles.view}>
-          <Text style={[baseStyles.title]}>Platonic Solids</Text>
-          <View style={baseStyles.grid}>{this.renderGrid(PlatonicSolids, 110)}</View>
-          <Text style={baseStyles.title}>Archimedean Solids</Text>
-          <View style={baseStyles.grid}>{this.renderGrid(ArchimedeanSolids, 135)}</View>
-        </View>
+      <ScrollView contentContainerStyle={baseStyles.view}>
+        <Text style={baseStyles.title}>Platonic Solids</Text>
+        <View style={baseStyles.grid}>{this.renderGrid(PlatonicSolids, 110)}</View>
+        <Text style={baseStyles.title}>Archimedean Solids</Text>
+        <View style={baseStyles.grid}>{this.renderGrid(ArchimedeanSolids, 135)}</View>
       </ScrollView>
     </View>);
   }

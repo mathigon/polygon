@@ -1,10 +1,4 @@
-// -----------------------------------------------------------------------------
-// Polygon App - Android Entry File
-// @author Philipp Legner
-// -----------------------------------------------------------------------------
-
-
 import { AppRegistry } from 'react-native';
-import { App } from './src/app.js'
+import App from './src/app';
 
 AppRegistry.registerComponent('Polygon', () => App);

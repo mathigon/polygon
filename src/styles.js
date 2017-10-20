@@ -16,9 +16,8 @@ export const baseStyles = StyleSheet.create({
     height: null
   },
   view: {
-    flex: 1,
     paddingTop: 10,
-    paddingBottom: 60,
+    paddingBottom: 60
   },
 
 
@@ -31,19 +30,22 @@ export const baseStyles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     color: 'white',
-    fontFamily: 'Avenir-Book'
+    fontFamily: 'Avenir-Book',
+    backgroundColor:'rgba(0,0,0,0)'
   },
   heading: {
     color: 'white',
     fontSize: 18,
     fontWeight: 'bold',
-    fontFamily: 'Avenir-Book'
+    fontFamily: 'Avenir-Book',
+    backgroundColor:'rgba(0,0,0,0)'
   },
   text: {
     color: 'white',
     fontSize: 14,
     fontWeight: '400',
-    fontFamily: 'Avenir-Book'
+    fontFamily: 'Avenir-Book',
+    backgroundColor:'rgba(0,0,0,0)'
   },
 
 
@@ -55,6 +57,7 @@ export const baseStyles = StyleSheet.create({
     flexGrow: 1,  // remove?
     flexDirection: 'row',  // remove?
     flexWrap: 'wrap',
+    marginBottom: 20
   },
   tileWrap: {
     alignItems: 'center',
@@ -70,24 +73,28 @@ export const baseStyles = StyleSheet.create({
     color: '#fff',
     textAlign: 'center',
     fontSize: 14,
-    fontFamily: 'Avenir-Book'
+    fontFamily: 'Avenir-Book',
+    backgroundColor:'rgba(0,0,0,0)'
   },
 
 
   // List
 
   rowWrap: {
+    borderBottomColor: 'rgba(255,255,255,0.3)',
+    borderBottomWidth: 1,
+    marginLeft: 18,
+    marginRight: 18,
     flexGrow: 1
   },
   row: {
-    flexDirection: 'row',
-    marginLeft: 12,
-    marginRight: 12,
-    paddingTop: 12,
-    paddingBottom: 12,
-    borderBottomColor: 'rgba(255,255,255,0.3)',
-    borderBottomWidth: 1,
-    flexGrow: 1
+    paddingTop: 10,
+    paddingBottom: 10,
+    flexGrow: 1,
+    marginLeft: -18,
+    marginRight: -18,
+    paddingLeft: 18,
+    paddingRight: 18
   }
 
 });

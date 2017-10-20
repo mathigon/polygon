@@ -21,7 +21,7 @@ export class CameraView extends Component {
 
     setTimeout(() => {
       Vibration.vibrate();
-      this.props.navigator.pop();
+      this.props.navigation.goBack();
       this.props.state.addShape(result.data);
     }, 1000);
 
@@ -29,9 +29,10 @@ export class CameraView extends Component {
     setTimeout(() => { BLOCKED = false; }, 5000);
   }
 
+  // barCodeTypes={['aztec']}
   render() {
     return (<View style={baseStyles.dynamicView}>
-      <NavBar title="Camera" navigator={this.props.navigator}/>
+      <NavBar title="Camera" navigation={this.props.navigation}/>
       <Camera onBarCodeRead={x => { this.onBarCodeRead(x); }} style={styles.camera}>
         <View style={styles.rectangle}/>
       </Camera>

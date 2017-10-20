@@ -5,7 +5,7 @@
 
 
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, Image, TextInput, ScrollView } from 'react-native';
+import { Text, View, StyleSheet, Image, TextInput, ScrollView, Button } from 'react-native';
 import Modal from 'react-native-modalbox';
 import ImageSequence from 'react-native-image-sequence';
 
@@ -64,6 +64,10 @@ export class PolygonModal extends AbstractModal {
 
 export class PolyhedronModal extends AbstractModal {
   get height() { return 320; }
+  open(data) {
+    AbstractModal.prototype.open.call(this, data);
+    this.props.app.triggerConfetti();
+  }
   renderBody() {
     if (!this.data) return null;
     return (<View style={styles.modalWrap}>
@@ -74,23 +78,36 @@ export class PolyhedronModal extends AbstractModal {
 }
 
 export class PowerupModal extends AbstractModal {
-  get height() { return 320; }
-  checkAnswer(e) {
+  constructor() {
+    super();
+    this.state = {value: null, error: false};
+  }
+  get height() { return 370; }
+  open(data) {
+    AbstractModal.prototype.open.call(this, data);
+    this.setState({value: null, error: false});
+  }
+  change(e) { this.setState({value: e.nativeEvent.text}); }
+
+  submit() {
     let isNumber = (typeof this.data.answer === 'number');
-    let v = isNumber ? +e.nativeEvent.text : e.nativeEvent.text.toLowerCase();
+    let v = isNumber ? +this.state.value : this.state.value.toLowerCase();
 
     if (v === this.data.answer) {
-      this.setState({error: false});
+      this.state.error = false;
       this.props.state.addPowerup(this.data);
+      this.props.app.triggerConfetti();
       this.refs.me.close();
     } else {
-      this.setState({error: true});
+      this.state.error = true;
     }
+    this.setState(this.state)
   }
+
   renderBody() {
     if (!this.data) return null;
     let isNumber = (typeof this.data.answer === 'number');
-    let keyboard = isNumber ? 'numbers-and-punctuation' : 'default';
+    let keyboard = isNumber ? 'numeric' : 'default';
 
     // <Text style={styles.modalText}>{this.data.description}</Text>
 
@@ -98,20 +115,19 @@ export class PowerupModal extends AbstractModal {
       <Image source={POWERUP_IMAGES[this.data.key - 1]} style={styles.modalImage}/>
       <Text style={styles.modalTitle}>{this.data.name}</Text>
       <Text style={styles.modalText}>{this.data.question}</Text>
-      <ScrollView scrollEnabled={false} contentContainerStyle={styles.main}>
-        <TextInput placeholder="???" returnKeyType="go" keyboardType={keyboard}
-                   keyboardAppearance="dark" enablesReturnKeyAutomatically={true}
-                   autoCorrect={false} style={styles.inputField}
-                   onSubmitEditing={text => this.checkAnswer(text)}/>
-    </ScrollView>
-
+      <TextInput placeholder="???" returnKeyType="done" keyboardType={keyboard}
+                 keyboardAppearance="dark" enablesReturnKeyAutomatically={true}
+                 autoCorrect={false}
+                 style={styles.inputField}
+                 onChange={this.change.bind(this)}/>
       <Text style={styles.modalError}>{this.state.error ? 'Try again!' : ''}</Text>
+      <Button onPress={this.submit.bind(this)} title="Check" disabled={!this.state.value} color="#007aff"/>
     </View>);
   }
 }
 
 export class BadgeModal extends AbstractModal {
-  get height() { return 440; }
+  get height() { return 460; }
   renderBody() {
     if (!this.data) return null;
     return (<View style={styles.modalWrap}>
@@ -131,6 +147,7 @@ const styles = StyleSheet.create({
   modalBody: {
     backgroundColor: "#eee",
     padding: 20,
+    paddingBottom: 0,
     flex: 1,
     margin: 20,
     borderRadius: 10
@@ -146,6 +163,7 @@ const styles = StyleSheet.create({
     height: 80,
     width: 80,
     flexGrow: 0,
+    marginBottom: 10
   },
   modalTitle: {
     fontSize: 20,
@@ -170,7 +188,9 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#c00',
     textAlign: 'center',
-    fontFamily: 'Avenir-Book'
+    fontFamily: 'Avenir-Book',
+    marginTop: 5,
+    marginBottom: 10
   },
 
   inputField: {

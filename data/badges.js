@@ -19,9 +19,9 @@ export default [
   }, {
     key: "fibonacci",
     name: "Fibonacci",
-    description: "Share your shapes with another visitor.",
+    description: "Collect 20 polygons.",
     bio: "Leonardo Fibonacci was an Italian mathematician who lived in Pisa during the Middle Ages. He popularised the Arabic numeral system which we all use today, but is best known for the “Fibonacci numbers”, a sequence of numbers that describes the growth of (idealised) rabbit populations and appears in many other places in nature.",
-    validate(state) { return false; /* TODO */ }
+    validate(state) { return sum(count(state)) >= 20; }
   }, {
     key: "plato",
     name: "Plato",

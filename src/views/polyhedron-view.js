@@ -5,7 +5,7 @@
 
 
 import React, { Component } from 'react';
-import { View, ScrollView, Text, Image, StyleSheet } from 'react-native';
+import { View, ScrollView, Text, Image, StyleSheet, Button } from 'react-native';
 import { NavBar } from '../components/navbar';
 import ImageSequence from 'react-native-image-sequence';
 import { baseStyles } from '../styles';
@@ -16,11 +16,13 @@ import BACKGROUND from '../../images/background.jpg';
 import POLYGONS from '../../data/polygons.json';
 import ROTATIONS from '../../images/rotations.js';
 
+const supportsAR = true;
+
 
 export class PolyhedronView extends Component {
 
   renderMoreText(polyhedron) {
-    let progress = polyhedron.progress(this.props.state);
+    let progress = polyhedron.progress(this.props.screenProps.state);
 
     let missing = Math.round((1 - progress) * polyhedron.total);
     if (!missing) return null;
@@ -41,15 +43,20 @@ export class PolyhedronView extends Component {
   }
 
   render() {
-    let p = this.props.polyhedron;
+    const p = this.props.navigation.state.params.polyhedron;
+    const state = this.props.screenProps.state;
+
+    const ARButton = supportsAR ?
+      <Button onPress={() => { this.props.navigation.navigate('AR', {polyhedron: p}); }} title="View in AR"/> : null;
 
     return (
       <Image source={BACKGROUND} style={baseStyles.dynamicView} resizeMode="cover">
-        <NavBar title={p.name} navigator={this.props.navigator}/>
+        <NavBar title={p.name} navigation={this.props.navigation}/>
         <ScrollView contentContainerStyle={baseStyles.scrollView}>
           <View style={baseStyles.view}>
             <ImageSequence images={ROTATIONS[p.key]} style={styles.rotation}/>
-            <View style={styles.net}><PolyhedronNet p={p} state={this.props.state}/></View>
+            <View style={styles.net}><PolyhedronNet p={p} state={state}/></View>
+            <View style={{margin: 24}}>{ARButton}</View>
             {this.renderMoreText(p)}
             {this.renderDescription(p)}
             <Text style={[baseStyles.text, styles.text]}>{p.description}</Text>
@@ -68,8 +75,7 @@ const styles = StyleSheet.create({
   },
   net: {
     marginLeft: 24,
-    marginRight: 24,
-    marginBottom: 24
+    marginRight: 24
   },
   missing: {
     flex: 1,
@@ -87,5 +93,5 @@ const styles = StyleSheet.create({
     marginLeft: 24,
     marginRight: 24,
     marginBottom: 12
-  }
+  },
 });

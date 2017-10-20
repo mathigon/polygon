@@ -5,7 +5,7 @@
 
 
 import React, { Component } from 'react';
-import { ScrollView, TouchableOpacity, Text, View, StyleSheet, Image } from 'react-native';
+import { ScrollView, TouchableHighlight, Text, View, StyleSheet, Image } from 'react-native';
 import { NavBar } from '../components/navbar';
 import { baseStyles } from '../styles';
 
@@ -16,45 +16,35 @@ import BADGE_INACTIVE_IMAGES from '../../images/badges-bw/badges.js';
 
 export class BadgesView extends Component {
 
-  renderActiveBadge(b) {
-    return <TouchableOpacity style={[baseStyles.rowWrap, {height: 91}]} key={b.key}
-                      onPress={() => { this.props.modal.open(b) }}>
-      <View style={baseStyles.row}>
-        <Image source={BADGE_IMAGES[b.key]} style={styles.badgeIcon}/>
-        <View style={styles.badgeText}>
-          <Text style={baseStyles.heading}>{b.name}</Text>
-          <Text style={baseStyles.text}>{b.description}</Text>
-        </View>
-      </View>
-    </TouchableOpacity>;
-  }
+  renderBadge(b, active) {
+    const TouchComponent = active ? TouchableHighlight : View;
+    const images = active ? BADGE_IMAGES : BADGE_INACTIVE_IMAGES;
+    const opacity = active ? 1 : 0.8;
 
-  renderInactiveBadge(b) {
-    return <View key={b.key} style={[baseStyles.row,  {height: 91}]}>
-      <Image source={BADGE_INACTIVE_IMAGES[b.key]} style={[styles.badgeIcon, {opacity: .8}]}/>
-      <View style={styles.badgeText}>
-        <Text style={baseStyles.heading}>{b.name}</Text>
-        <Text style={baseStyles.text}>{b.description}</Text>
-      </View>
+    return <View style={[baseStyles.rowWrap, {height: 91}]} key={b.key}>
+      <TouchComponent style={baseStyles.row}
+                      onPress={() => { this.props.app.openModal('badgeModal', b) }}
+                      underlayColor='rgba(255,255,255,0.2)'>
+        <View style={styles.badgeRow}>
+          <Image source={images[b.key]} style={[styles.badgeIcon, {opacity}]}/>
+          <View style={styles.badgeText}>
+            <Text style={baseStyles.heading}>{b.name}</Text>
+            <Text style={baseStyles.text}>{b.description}</Text>
+          </View>
+        </View>
+      </TouchComponent>
     </View>;
   }
 
   render() {
-    let badges = [];
-    for (let b of BADGES) {
-      let isActive = this.props.state.badges.includes(b.key);
-      let row = isActive ? this.renderActiveBadge(b) : this.renderInactiveBadge(b);
-      badges.push(row);
-    }
+    let myBadges = this.props.state.badges;
+    let badges = BADGES.map(b => this.renderBadge(b, myBadges.includes(b.key)));
 
     return (<View style={{flex: 1}}>
       <NavBar title="Badges"/>
-      <ScrollView contentContainerStyle={baseStyles.scrollView}>
-        <View style={baseStyles.view}>{badges}</View>
-      </ScrollView>
+      <ScrollView contentContainerStyle={baseStyles.view}>{badges}</ScrollView>
     </View>);
   }
-
 }
 
 
@@ -64,7 +54,12 @@ const styles = StyleSheet.create({
     height: 70,
     marginRight: 20
   },
+  badgeRow: {
+    flex: 1,
+    flexDirection: 'row'
+  },
   badgeText: {
-    flexGrow: 1
+    flexGrow: 1,
+    flexShrink: 1
   }
 });

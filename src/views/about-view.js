@@ -5,35 +5,55 @@
 
 
 import React, { Component } from 'react';
-import { TouchableOpacity, Text, View, StyleSheet, Image } from 'react-native';
+import { TouchableOpacity, Text, View, StyleSheet, Image, Linking, ListView, TouchableHighlight } from 'react-native';
 import { NavBar } from '../components/navbar';
 import { baseStyles } from '../styles';
 
-const MOMATH = require('../../images/momath.png');
-const MATHIGON = require('../../images/mathigon.png');
+const MOMATH = require('../../images/links/momath.png');
+const MATHIGON = require('../../images/links/mathigon.png');
+const IMAGINARY = require('../../images/links/imaginary.png');
 
+
+function openLink(url) {
+  Linking.openURL(url);
+}
 
 export class AboutView extends Component {
 
+  constructor() {
+    super();
+    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+    this.state = {
+      dataSource: ds.cloneWithRows(['row 1', 'row 2']),
+    };
+  }
+
   renderLink(name) {
-    return <TouchableOpacity style={[baseStyles.rowWrap, {height: 45}]} key={name}>
-      <View style={baseStyles.row}>
+    return <View style={baseStyles.rowWrap}>
+      <TouchableHighlight style={baseStyles.row} onPress={() => {}} underlayColor='rgba(255,255,255,0.2)'>
         <Text style={[baseStyles.text, {fontSize: 16}]}>{name}</Text>
-      </View>
-    </TouchableOpacity>;
+      </TouchableHighlight>
+    </View>;
   }
 
   render() {
     return (<View style={{flex: 1}}>
       <NavBar title="More"/>
-      <View style={styles.view}>
-        {this.renderLink('What are Polygons and Polyhedra?')}
-        {this.renderLink('What are Platonic and Archimedean solids?')}
+      <View style={baseStyles.view}>
+        {this.renderLink('Polygons and Polyhedra')}
+        {this.renderLink('Platonic and Archimedean solids')}
         {this.renderLink('Help and Support')}
         {this.renderLink('Credits')}
-        <View style={styles.imageRow}>
-          <Image source={MOMATH} style={styles.image}/>
-          <Image source={MATHIGON} style={styles.image}/>
+        <View style={styles.links}>
+          <TouchableOpacity style={styles.image} onPress={() => { Linking.openURL('https://momath.org') }} activeOpacity={0.5}>
+            <Image source={MOMATH}/>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.image} onPress={() => { Linking.openURL('https://mathigon.org') }} activeOpacity={0.5}>
+            <Image source={MATHIGON}/>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.image} onPress={() => { Linking.openURL('https://imaginary.org') }} activeOpacity={0.5}>
+            <Image source={IMAGINARY}/>
+          </TouchableOpacity>
         </View>
       </View>
     </View>);
@@ -42,21 +62,13 @@ export class AboutView extends Component {
 
 
 const styles = StyleSheet.create({
-  view: {
-    paddingTop: 10,
-    paddingLeft: 10,
-    paddingRight: 10
-  },
-  imageRow: {
-    flex: 1,
-    flexDirection: 'row',
-    paddingTop: 30,
-    paddingLeft: 30,
-    paddingRight: 30,
-    justifyContent: 'space-around'
+  links: {
+    alignItems: 'center',
+    marginTop: 30
   },
   image: {
-    width: 100,
-    height: 100
+    width: 220,
+    height: 64,
+    margin: 10
   }
 });
