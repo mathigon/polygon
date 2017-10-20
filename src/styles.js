@@ -25,20 +25,23 @@ export const baseStyles = StyleSheet.create({
     marginBottom: 10,
     textAlign: 'center',
     fontSize: 18,
+    fontWeight: 'bold',
     color: 'white',
-    fontFamily: 'AvenirLTStd-Heavy',
+    fontFamily: 'Avenir-Book',
     backgroundColor:'rgba(0,0,0,0)'
   },
   heading: {
     color: 'white',
     fontSize: 18,
-    fontFamily: 'AvenirLTStd-Heavy',
+    fontWeight: 'bold',
+    fontFamily: 'Avenir-Book',
     backgroundColor:'rgba(0,0,0,0)'
   },
   text: {
     color: 'white',
     fontSize: 14,
-    fontFamily: 'AvenirLTStd-Roman',
+    fontWeight: '400',
+    fontFamily: 'Avenir-Book',
     backgroundColor:'rgba(0,0,0,0)'
   },
 
@@ -67,7 +70,7 @@ export const baseStyles = StyleSheet.create({
     color: '#fff',
     textAlign: 'center',
     fontSize: 14,
-    fontFamily: 'AvenirLTStd-Roman',
+    fontFamily: 'Avenir-Book',
     backgroundColor:'rgba(0,0,0,0)'
   },
 

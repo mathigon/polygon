@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
   tabText: {
     color: '#fff',
     fontSize: 11,
-    fontFamily: 'AvenirLTStd-Roman',
+    fontFamily: 'Avenir-Book',
     marginTop: 2,
     backgroundColor:'rgba(0,0,0,0)'
   }
