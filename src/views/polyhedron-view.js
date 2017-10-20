@@ -5,7 +5,7 @@
 
 
 import React, { Component } from 'react';
-import { View, ScrollView, Text, Image, StyleSheet, Button } from 'react-native';
+import { View, ScrollView, Text, Image, StyleSheet, Button, Platform } from 'react-native';
 import { NavBar } from '../components/navbar';
 import ImageSequence from 'react-native-image-sequence';
 import { baseStyles } from '../styles';
@@ -16,7 +16,7 @@ import BACKGROUND from '../../images/background.jpg';
 import POLYGONS from '../../data/polygons.json';
 import ROTATIONS from '../../images/rotations.js';
 
-const supportsAR = true;
+const supportsAR = (Platform.OS === 'ios');
 
 
 export class PolyhedronView extends Component {
@@ -52,15 +52,13 @@ export class PolyhedronView extends Component {
     return (
       <Image source={BACKGROUND} style={baseStyles.dynamicView} resizeMode="cover">
         <NavBar title={p.name} navigation={this.props.navigation}/>
-        <ScrollView contentContainerStyle={baseStyles.scrollView}>
-          <View style={baseStyles.view}>
-            <ImageSequence images={ROTATIONS[p.key]} style={styles.rotation}/>
-            <View style={styles.net}><PolyhedronNet p={p} state={state}/></View>
-            <View style={{margin: 24}}>{ARButton}</View>
-            {this.renderMoreText(p)}
-            {this.renderDescription(p)}
-            <Text style={[baseStyles.text, styles.text]}>{p.description}</Text>
-          </View>
+        <ScrollView contentContainerStyle={[baseStyles.view, {alignItems: 'center'}]}>
+          <ImageSequence images={ROTATIONS[p.key]} style={styles.rotation}/>
+          <View style={styles.net}><PolyhedronNet p={p} state={state}/></View>
+          <View style={{margin: 24}}>{ARButton}</View>
+          {this.renderMoreText(p)}
+          {this.renderDescription(p)}
+          <Text style={[baseStyles.text, styles.text]}>{p.description}</Text>
         </ScrollView>
       </Image>)
   }

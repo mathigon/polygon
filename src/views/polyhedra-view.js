@@ -54,9 +54,9 @@ export class PolyhedraView extends Component {
       <NavBar title="Polyhedra"/>
       <ScrollView contentContainerStyle={baseStyles.view}>
         <Text style={baseStyles.title}>Platonic Solids</Text>
-        <View style={baseStyles.grid}>{this.renderGrid(PlatonicSolids, 110)}</View>
+        <View style={baseStyles.grid}>{this.renderGrid(PlatonicSolids, 115)}</View>
         <Text style={baseStyles.title}>Archimedean Solids</Text>
-        <View style={baseStyles.grid}>{this.renderGrid(ArchimedeanSolids, 135)}</View>
+        <View style={baseStyles.grid}>{this.renderGrid(ArchimedeanSolids, 130)}</View>
       </ScrollView>
     </View>);
   }

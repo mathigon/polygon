@@ -9,7 +9,6 @@ import { PolyhedraView } from './views/polyhedra-view'
 import { BadgesView } from './views/badges-view'
 import { AboutView } from './views/about-view'
 import { CameraView } from './views/camera-view'
-import { ShareView } from './views/share-view'
 import { PowerupView } from './views/powerup-view'
 import { PolyhedronView } from './views/polyhedron-view'
 import { ARView } from './views/ar-view'
@@ -44,7 +43,6 @@ const Body = StackNavigator({
   Polyhedron: { screen: PolyhedronView },
   Camera: { screen: CameraView },
   AR: { screen: ARView },
-  Share: { screen: ShareView },
   Powerup: { screen: PowerupView },
 }, {
   initialRouteName: 'Home',

@@ -5,7 +5,7 @@
 
 
 import React, { Component } from 'react';
-import { TouchableOpacity, Text, View, StyleSheet, Image, Linking, ListView, TouchableHighlight } from 'react-native';
+import { TouchableOpacity, Text, View, StyleSheet, Image, Linking, ListView, TouchableHighlight, ScrollView } from 'react-native';
 import { NavBar } from '../components/navbar';
 import { baseStyles } from '../styles';
 
@@ -39,7 +39,7 @@ export class AboutView extends Component {
   render() {
     return (<View style={{flex: 1}}>
       <NavBar title="More"/>
-      <View style={baseStyles.view}>
+      <ScrollView contentContainerStyle={baseStyles.view}>
         {this.renderLink('Polygons and Polyhedra')}
         {this.renderLink('Platonic and Archimedean solids')}
         {this.renderLink('Help and Support')}
@@ -55,7 +55,7 @@ export class AboutView extends Component {
             <Image source={IMAGINARY}/>
           </TouchableOpacity>
         </View>
-      </View>
+      </ScrollView>
     </View>);
   }
 }

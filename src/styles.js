@@ -7,17 +7,14 @@
 import { StyleSheet } from 'react-native';
 
 export const baseStyles = StyleSheet.create({
-  scrollView: {
-    alignItems: 'center'
+  view: {
+    paddingTop: 10,
+    paddingBottom: 60
   },
   dynamicView: {
     flex: 1,
     width: null,
     height: null
-  },
-  view: {
-    paddingTop: 10,
-    paddingBottom: 60
   },
 
 
@@ -28,23 +25,20 @@ export const baseStyles = StyleSheet.create({
     marginBottom: 10,
     textAlign: 'center',
     fontSize: 18,
-    fontWeight: 'bold',
     color: 'white',
-    fontFamily: 'Avenir-Book',
+    fontFamily: 'AvenirLTStd-Heavy',
     backgroundColor:'rgba(0,0,0,0)'
   },
   heading: {
     color: 'white',
     fontSize: 18,
-    fontWeight: 'bold',
-    fontFamily: 'Avenir-Book',
+    fontFamily: 'AvenirLTStd-Heavy',
     backgroundColor:'rgba(0,0,0,0)'
   },
   text: {
     color: 'white',
     fontSize: 14,
-    fontWeight: '400',
-    fontFamily: 'Avenir-Book',
+    fontFamily: 'AvenirLTStd-Roman',
     backgroundColor:'rgba(0,0,0,0)'
   },
 
@@ -73,7 +67,7 @@ export const baseStyles = StyleSheet.create({
     color: '#fff',
     textAlign: 'center',
     fontSize: 14,
-    fontFamily: 'Avenir-Book',
+    fontFamily: 'AvenirLTStd-Roman',
     backgroundColor:'rgba(0,0,0,0)'
   },
 

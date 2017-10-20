@@ -169,26 +169,26 @@ const styles = StyleSheet.create({
     fontSize: 20,
     marginBottom: 12,
     textAlign: 'center',
-    fontFamily: 'Avenir-Book',
+    fontFamily: 'AvenirLTStd-Roman',
     fontWeight: 'bold'
   },
   modalTextLarge: {
     fontSize: 20,
     marginBottom: 12,
     textAlign: 'center',
-    fontFamily: 'Avenir-Book'
+    fontFamily: 'AvenirLTStd-Roman'
   },
   modalText: {
     fontSize: 16,
     marginBottom: 12,
     textAlign: 'center',
-    fontFamily: 'Avenir-Book'
+    fontFamily: 'AvenirLTStd-Roman'
   },
   modalError: {
     fontSize: 14,
     color: '#c00',
     textAlign: 'center',
-    fontFamily: 'Avenir-Book',
+    fontFamily: 'AvenirLTStd-Roman',
     marginTop: 5,
     marginBottom: 10
   },

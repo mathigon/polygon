@@ -5,7 +5,7 @@
 
 
 import React, { Component } from 'react';
-import { Image, TouchableOpacity, Text, View, StyleSheet } from 'react-native';
+import { Image, TouchableOpacity, Text, View, StyleSheet, ScrollView } from 'react-native';
 import { baseStyles } from '../styles';
 
 const POLYGONS = require('../../data/polygons.json');
@@ -30,7 +30,7 @@ export class HomeView extends Component {
       </View>);
     }
 
-    return (<View style={baseStyles.scrollView}>
+    return (<ScrollView contentContainerStyle={{alignItems: 'center', paddingBottom: 80}}>
       <Image style={styles.logo} source={LOGO}/>
       <View style={baseStyles.grid}>{polygons}</View>
       <TouchableOpacity style={styles.addButton} onPress={() => { this.props.navigation.navigate('Camera') }} activeOpacity={1}>
@@ -39,7 +39,7 @@ export class HomeView extends Component {
       <TouchableOpacity style={styles.addButton} onPress={() => { this.props.navigation.navigate('Powerup') }} activeOpacity={1}>
         <Image style={styles.addButtonImage} source={ADD_POWERUP}/>
       </TouchableOpacity>
-    </View>);
+    </ScrollView>);
   }
 }
 

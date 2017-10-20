@@ -19,11 +19,9 @@ export class CameraView extends Component {
     if (BLOCKED) return;
     BLOCKED = true;
 
-    setTimeout(() => {
-      Vibration.vibrate();
-      this.props.navigation.goBack();
-      this.props.state.addShape(result.data);
-    }, 1000);
+    Vibration.vibrate();
+    this.props.navigation.goBack();
+    this.props.screenProps.state.addShape(result.data);
 
     // Hacky way to avoid onBarCodeRead triggering multiple times.
     setTimeout(() => { BLOCKED = false; }, 5000);

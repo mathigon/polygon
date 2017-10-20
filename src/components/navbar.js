@@ -40,6 +40,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     color: '#fff',
-    fontFamily: 'Avenir-Book'
+    fontFamily: 'AvenirLTStd-Roman'
   }
 });
