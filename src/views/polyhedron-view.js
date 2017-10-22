@@ -5,7 +5,7 @@
 
 
 import React, { Component } from 'react';
-import { View, ScrollView, Text, Image, StyleSheet, Button, Platform } from 'react-native';
+import { View, ScrollView, Text, Image, StyleSheet, TouchableOpacity, Platform } from 'react-native';
 import { NavBar } from '../components/navbar';
 import ImageSequence from 'react-native-image-sequence';
 import { baseStyles } from '../styles';
@@ -15,6 +15,7 @@ import { PolyhedronNet } from '../components/polyhedron-net.js';
 import BACKGROUND from '../../images/background.jpg';
 import POLYGONS from '../../data/polygons.json';
 import ROTATIONS from '../../images/rotations.js';
+import AR_IMAGE from '../../images/icons/view-in-ar.png';
 
 const supportsAR = (Platform.OS === 'ios');
 
@@ -47,15 +48,17 @@ export class PolyhedronView extends Component {
     const state = this.props.screenProps.state;
 
     const ARButton = supportsAR ?
-      <Button onPress={() => { this.props.navigation.navigate('AR', {polyhedron: p}); }} title="View in AR"/> : null;
+      <TouchableOpacity style={styles.addButton} onPress={() => { this.props.navigation.navigate('AR', {polyhedron: p}) }} activeOpacity={1}>
+        <Image source={AR_IMAGE}/>
+      </TouchableOpacity> : null;
 
     return (
       <Image source={BACKGROUND} style={baseStyles.dynamicView} resizeMode="cover">
         <NavBar title={p.name} navigation={this.props.navigation}/>
         <ScrollView contentContainerStyle={[baseStyles.view, {alignItems: 'center'}]}>
+          {ARButton}
           <ImageSequence images={ROTATIONS[p.key]} style={styles.rotation}/>
           <View style={styles.net}><PolyhedronNet p={p} state={state}/></View>
-          <View style={{margin: 24}}>{ARButton}</View>
           {this.renderMoreText(p)}
           {this.renderDescription(p)}
           <Text style={[baseStyles.text, styles.text]}>{p.description}</Text>
@@ -73,7 +76,14 @@ const styles = StyleSheet.create({
   },
   net: {
     marginLeft: 24,
-    marginRight: 24
+    marginRight: 24,
+    marginBottom: 24
+  },
+  addButton: {
+    width: 160,
+    height: 48,
+    opacity: 0.6,
+    marginTop: 14
   },
   missing: {
     flex: 1,

@@ -13,7 +13,7 @@ export class ARView extends Component {
 
     return (<View style={baseStyles.dynamicView}>
       <NavBar title="Polygon" navigation={this.props.navigation}/>
-      <ARKit style={{ flex: 1 }} debug planeDetection lightEstimation>
+      <ARKit style={{ flex: 1 }} planeDetection lightEstimation>
         <ARKit.Model position={{ x: 0, y: 0, z: -2, frame: 'local' }}
                      model={{file, scale: 1 }}/>
       </ARKit>

@@ -34,10 +34,10 @@ export class HomeView extends Component {
       <Image style={styles.logo} source={LOGO}/>
       <View style={baseStyles.grid}>{polygons}</View>
       <TouchableOpacity style={styles.addButton} onPress={() => { this.props.navigation.navigate('Camera') }} activeOpacity={1}>
-        <Image style={styles.addButtonImage} source={ADD_CAMERA}/>
+        <Image source={ADD_CAMERA}/>
       </TouchableOpacity>
       <TouchableOpacity style={styles.addButton} onPress={() => { this.props.navigation.navigate('Powerup') }} activeOpacity={1}>
-        <Image style={styles.addButtonImage} source={ADD_POWERUP}/>
+        <Image source={ADD_POWERUP}/>
       </TouchableOpacity>
     </ScrollView>);
   }
