@@ -16,20 +16,15 @@ the simulator using `npm run ios` or `npm run android`.
 
 ## TODO list
 
-__Version 0__
-* Powerups: locked, b/w, better questions
-* Check Confetti, Add button in polygon modal
+__Version 2__
 * About screen pages
-* Code signing, testing, App Store release
-* Android: Fonts + blur
-
-__Version 1__
-* AR Kit Integration
+* AR Kit Improvements (Colours, Loading)
 * Tutorial, help messages across app
 * Better Polyhedron screens: images, SVG download
+* Improved Polygon + Badge Modals
 * Analytics
 
-__Version 2__
+__Version 3__
 * Swap shapes with other users
 * Daily top users list
 * Folding animation, Interactive rotations
