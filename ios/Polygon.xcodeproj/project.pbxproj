@@ -21,11 +21,11 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		17D3F6821F9949CE006254AD /* Polyhedra.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D3F6811F9949CE006254AD /* Polyhedra.scnassets */; };
+		17DCB7881FA0EFB200D760DD /* libRCTARKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17DCB7671FA0EF9400D760DD /* libRCTARKit.a */; };
 		52B47A2FFCAE4FF1A5F875BF /* libRCTCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D71C5FA32E9747B79793FECA /* libRCTCamera.a */; };
 		55FFB2E0A60E4CFD96EBF418 /* libRCTImageSequence.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DF51F1F3DA94F97AA4F2100 /* libRCTImageSequence.a */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
-		8F2EC45A211A47B2A282E646 /* libRCTARKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 151ACAC284D14F4FBD6584B5 /* libRCTARKit.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		F74D3EAC43E947A38EB87B6B /* libRNSVG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 23B8C7934DBA48E3B403638C /* libRNSVG.a */; };
 /* End PBXBuildFile section */
@@ -150,9 +150,9 @@
 			remoteGlobalIDString = 3D383D621EBD27B9005632C8;
 			remoteInfo = "double-conversion-tvOS";
 		};
-		179FEDAA1F96628C002BCB5B /* PBXContainerItemProxy */ = {
+		17DCB7661FA0EF9400D760DD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = A42BBE43ACB4456EA28BF426 /* RCTARKit.xcodeproj */;
+			containerPortal = 17DCB75F1FA0EF9400D760DD /* RCTARKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = RCTARKit;
@@ -302,8 +302,8 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Polygon/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Polygon/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
-		151ACAC284D14F4FBD6584B5 /* libRCTARKit.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTARKit.a; sourceTree = "<group>"; };
 		17D3F6811F9949CE006254AD /* Polyhedra.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; name = Polyhedra.scnassets; path = Polygon/Polyhedra.scnassets; sourceTree = "<group>"; };
+		17DCB75F1FA0EF9400D760DD /* RCTARKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTARKit.xcodeproj; path = "../node_modules/react-native-arkit/ios/RCTARKit.xcodeproj"; sourceTree = "<group>"; };
 		23B8C7934DBA48E3B403638C /* libRNSVG.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNSVG.a; sourceTree = "<group>"; };
 		52FE5D6ECE814A9AB3905B95 /* RCTImageSequence.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTImageSequence.xcodeproj; path = "../node_modules/react-native-image-sequence/ios/RCTImageSequence.xcodeproj"; sourceTree = "<group>"; };
 		5D27B42C8D0848D9A4EF507E /* RNSVG.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNSVG.xcodeproj; path = "../node_modules/react-native-svg/ios/RNSVG.xcodeproj"; sourceTree = "<group>"; };
@@ -311,7 +311,6 @@
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		9DF51F1F3DA94F97AA4F2100 /* libRCTImageSequence.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTImageSequence.a; sourceTree = "<group>"; };
-		A42BBE43ACB4456EA28BF426 /* RCTARKit.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTARKit.xcodeproj; path = "../node_modules/react-native-arkit/ios/RCTARKit.xcodeproj"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		CCCFD7D1B8684A039FE5E23E /* RCTCamera.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTCamera.xcodeproj; path = "../node_modules/react-native-camera/ios/RCTCamera.xcodeproj"; sourceTree = "<group>"; };
 		D71C5FA32E9747B79793FECA /* libRCTCamera.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTCamera.a; sourceTree = "<group>"; };
@@ -322,6 +321,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17DCB7881FA0EFB200D760DD /* libRCTARKit.a in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
@@ -338,7 +338,6 @@
 				52B47A2FFCAE4FF1A5F875BF /* libRCTCamera.a in Frameworks */,
 				F74D3EAC43E947A38EB87B6B /* libRNSVG.a in Frameworks */,
 				55FFB2E0A60E4CFD96EBF418 /* libRCTImageSequence.a in Frameworks */,
-				8F2EC45A211A47B2A282E646 /* libRCTARKit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,7 +444,6 @@
 				D71C5FA32E9747B79793FECA /* libRCTCamera.a */,
 				23B8C7934DBA48E3B403638C /* libRNSVG.a */,
 				9DF51F1F3DA94F97AA4F2100 /* libRCTImageSequence.a */,
-				151ACAC284D14F4FBD6584B5 /* libRCTARKit.a */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -475,10 +473,17 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		179FEDA71F96628C002BCB5B /* Products */ = {
+		17DCB74D1FA0EECF00D760DD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				179FEDAB1F96628C002BCB5B /* libRCTARKit.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		17DCB7601FA0EF9400D760DD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				17DCB7671FA0EF9400D760DD /* libRCTARKit.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -504,6 +509,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				17DCB75F1FA0EF9400D760DD /* RCTARKit.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
@@ -519,7 +525,6 @@
 				CCCFD7D1B8684A039FE5E23E /* RCTCamera.xcodeproj */,
 				5D27B42C8D0848D9A4EF507E /* RNSVG.xcodeproj */,
 				52FE5D6ECE814A9AB3905B95 /* RCTImageSequence.xcodeproj */,
-				A42BBE43ACB4456EA28BF426 /* RCTARKit.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -540,6 +545,7 @@
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				171F43481F955D49006B637B /* Recovered References */,
+				17DCB74D1FA0EECF00D760DD /* Frameworks */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -620,8 +626,8 @@
 					ProjectRef = 5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */;
 				},
 				{
-					ProductGroup = 179FEDA71F96628C002BCB5B /* Products */;
-					ProjectRef = A42BBE43ACB4456EA28BF426 /* RCTARKit.xcodeproj */;
+					ProductGroup = 17DCB7601FA0EF9400D760DD /* Products */;
+					ProjectRef = 17DCB75F1FA0EF9400D760DD /* RCTARKit.xcodeproj */;
 				},
 				{
 					ProductGroup = ADBDB9201DFEBF0600ED6528 /* Products */;
@@ -803,11 +809,11 @@
 			remoteRef = 179FEDA31F96628C002BCB5B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		179FEDAB1F96628C002BCB5B /* libRCTARKit.a */ = {
+		17DCB7671FA0EF9400D760DD /* libRCTARKit.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libRCTARKit.a;
-			remoteRef = 179FEDAA1F96628C002BCB5B /* PBXContainerItemProxy */;
+			remoteRef = 17DCB7661FA0EF9400D760DD /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		3DAD3E841DF850E9000B6D8A /* libRCTImage-tvOS.a */ = {
@@ -1007,11 +1013,11 @@
 					"$(SRCROOT)/../node_modules/react-native-camera/ios",
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-image-sequence/ios/RCTImageSequence",
-					"$(SRCROOT)/../node_modules/react-native-arkit/ios/**",
 				);
 				INFOPLIST_FILE = Polygon/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1020,6 +1026,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mathigon.polygon;
 				PRODUCT_NAME = Polygon;
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				VALID_ARCHS = arm64;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1037,11 +1044,11 @@
 					"$(SRCROOT)/../node_modules/react-native-camera/ios",
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-image-sequence/ios/RCTImageSequence",
-					"$(SRCROOT)/../node_modules/react-native-arkit/ios/**",
 				);
 				INFOPLIST_FILE = Polygon/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1050,6 +1057,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mathigon.polygon;
 				PRODUCT_NAME = Polygon;
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				VALID_ARCHS = arm64;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

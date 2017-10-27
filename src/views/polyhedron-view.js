@@ -17,7 +17,7 @@ import POLYGONS from '../../data/polygons.json';
 import ROTATIONS from '../../images/rotations.js';
 import AR_IMAGE from '../../images/icons/view-in-ar.png';
 
-const supportsAR = (Platform.OS === 'ios');
+const supportsAR = (Platform.OS === 'ios') && (+Platform.Version.split('.')[0] >= 11);
 
 
 export class PolyhedronView extends Component {

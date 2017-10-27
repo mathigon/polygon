@@ -1,4 +1,4 @@
-package com.polygon;
+package com.mathigon.polygon;
 
 import com.facebook.react.ReactActivity;
 

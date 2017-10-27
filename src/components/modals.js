@@ -5,7 +5,7 @@
 
 
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, Image, TextInput, ScrollView, Button } from 'react-native';
+import { Text, View, StyleSheet, Image, TextInput, Platform, Button } from 'react-native';
 import Modal from 'react-native-modalbox';
 import ImageSequence from 'react-native-image-sequence';
 
@@ -110,6 +110,8 @@ export class PowerupModal extends AbstractModal {
     let keyboard = isNumber ? 'numeric' : 'default';
 
     // <Text style={styles.modalText}>{this.data.description}</Text>
+    const modalStyles = (Platform.OS === 'ios') ?
+      [styles.inputField, styles.inputFieldIOS] : styles.inputField;
 
     return (<View style={styles.modalWrap}>
       <Image source={POWERUP_IMAGES[this.data.key - 1]} style={styles.modalImage}/>
@@ -118,7 +120,7 @@ export class PowerupModal extends AbstractModal {
       <TextInput placeholder="???" returnKeyType="done" keyboardType={keyboard}
                  keyboardAppearance="dark" enablesReturnKeyAutomatically={true}
                  autoCorrect={false}
-                 style={styles.inputField}
+                 style={modalStyles}
                  onChange={this.change.bind(this)}/>
       <Text style={styles.modalError}>{this.state.error ? 'Try again!' : ''}</Text>
       <Button onPress={this.submit.bind(this)} title="Check" disabled={!this.state.value} color="#007aff"/>
@@ -196,9 +198,11 @@ const styles = StyleSheet.create({
   inputField: {
     height: 40,
     width: 200,
+    textAlign: 'center',
+  },
+  inputFieldIOS: {
     borderColor: 'gray',
     borderWidth: 1,
-    textAlign: 'center',
     borderRadius: 3
   }
 });

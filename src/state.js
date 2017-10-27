@@ -77,12 +77,13 @@ export class State {
     let polygon = POLYGONS.find(p => p.key === +id);
 
     if (!polygon) {
-      Alert.alert('Error', 'This shape couldn’t be added. Try scanning again!');
+      Alert.alert('Error', 'This shape couldn’t be added. Please try again!');
       return;
     }
 
     if (this.shapes[id].includes(key)) {
-      Alert.alert('Error', `You’ve already added this ${polygon.name} before!`);
+      Alert.alert(`You’ve already added this ${polygon.name}!`,
+        'Every shape can only be added once. Keep searching for other ones!');
       return;
     }
 
@@ -97,6 +98,8 @@ export class State {
   }
 
   addPowerup(p) {
+    if (this.powerups.indexOf(p.key) >= 0) return;
+
     this.powerups.push(p.key);
     AsyncStorage.setItem('powerups', JSON.stringify(this.powerups));
 
