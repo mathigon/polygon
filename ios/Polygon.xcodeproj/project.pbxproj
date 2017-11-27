@@ -21,7 +21,6 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		17D3F6821F9949CE006254AD /* Polyhedra.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D3F6811F9949CE006254AD /* Polyhedra.scnassets */; };
-		17DCB7881FA0EFB200D760DD /* libRCTARKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17DCB7671FA0EF9400D760DD /* libRCTARKit.a */; };
 		52B47A2FFCAE4FF1A5F875BF /* libRCTCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D71C5FA32E9747B79793FECA /* libRCTCamera.a */; };
 		55FFB2E0A60E4CFD96EBF418 /* libRCTImageSequence.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DF51F1F3DA94F97AA4F2100 /* libRCTImageSequence.a */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
@@ -149,13 +148,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 3D383D621EBD27B9005632C8;
 			remoteInfo = "double-conversion-tvOS";
-		};
-		17DCB7661FA0EF9400D760DD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 17DCB75F1FA0EF9400D760DD /* RCTARKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 134814201AA4EA6300B7C361;
-			remoteInfo = RCTARKit;
 		};
 		3DAD3E831DF850E9000B6D8A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -303,7 +295,6 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Polygon/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		17D3F6811F9949CE006254AD /* Polyhedra.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; name = Polyhedra.scnassets; path = Polygon/Polyhedra.scnassets; sourceTree = "<group>"; };
-		17DCB75F1FA0EF9400D760DD /* RCTARKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTARKit.xcodeproj; path = "../node_modules/react-native-arkit/ios/RCTARKit.xcodeproj"; sourceTree = "<group>"; };
 		23B8C7934DBA48E3B403638C /* libRNSVG.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNSVG.a; sourceTree = "<group>"; };
 		52FE5D6ECE814A9AB3905B95 /* RCTImageSequence.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTImageSequence.xcodeproj; path = "../node_modules/react-native-image-sequence/ios/RCTImageSequence.xcodeproj"; sourceTree = "<group>"; };
 		5D27B42C8D0848D9A4EF507E /* RNSVG.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNSVG.xcodeproj; path = "../node_modules/react-native-svg/ios/RNSVG.xcodeproj"; sourceTree = "<group>"; };
@@ -321,7 +312,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17DCB7881FA0EFB200D760DD /* libRCTARKit.a in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
@@ -480,14 +470,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		17DCB7601FA0EF9400D760DD /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				17DCB7671FA0EF9400D760DD /* libRCTARKit.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		5E91572E1DD0AC6500FF2AA8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -509,7 +491,6 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				17DCB75F1FA0EF9400D760DD /* RCTARKit.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
@@ -624,10 +605,6 @@
 				{
 					ProductGroup = 5E91572E1DD0AC6500FF2AA8 /* Products */;
 					ProjectRef = 5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */;
-				},
-				{
-					ProductGroup = 17DCB7601FA0EF9400D760DD /* Products */;
-					ProjectRef = 17DCB75F1FA0EF9400D760DD /* RCTARKit.xcodeproj */;
 				},
 				{
 					ProductGroup = ADBDB9201DFEBF0600ED6528 /* Products */;
@@ -807,13 +784,6 @@
 			fileType = archive.ar;
 			path = "libdouble-conversion.a";
 			remoteRef = 179FEDA31F96628C002BCB5B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		17DCB7671FA0EF9400D760DD /* libRCTARKit.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRCTARKit.a;
-			remoteRef = 17DCB7661FA0EF9400D760DD /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		3DAD3E841DF850E9000B6D8A /* libRCTImage-tvOS.a */ = {
@@ -1026,7 +996,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mathigon.polygon;
 				PRODUCT_NAME = Polygon;
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				VALID_ARCHS = arm64;
+				VALID_ARCHS = "arm64 armv7 armv7s";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1057,7 +1027,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mathigon.polygon;
 				PRODUCT_NAME = Polygon;
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				VALID_ARCHS = arm64;
+				VALID_ARCHS = "arm64 armv7 armv7s";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

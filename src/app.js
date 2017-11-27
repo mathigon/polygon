@@ -11,7 +11,7 @@ import { AboutView } from './views/about-view'
 import { CameraView } from './views/camera-view'
 import { PowerupView } from './views/powerup-view'
 import { PolyhedronView } from './views/polyhedron-view'
-import { ARView } from './views/ar-view'
+// import { ARView } from './views/ar-view'
 
 import { State } from './state.js'
 import { TabBar } from './components/tab-bar.js'
@@ -42,7 +42,7 @@ const Body = StackNavigator({
   Home: { screen: HomeScreen },
   Polyhedron: { screen: PolyhedronView },
   Camera: { screen: CameraView },
-  AR: { screen: ARView },
+  // AR: { screen: ARView },
   Powerup: { screen: PowerupView },
 }, {
   initialRouteName: 'Home',

@@ -17,9 +17,11 @@ the simulator using `npm run ios` or `npm run android`.
 ## TODO list
 
 __Version 2__
+* Corrections: Football, if, check
+* Lock posterior until you’ve got tetrahedron + cube
 * About screen pages
 * AR Kit Improvements (Colours, Loading)
-* Tutorial, help messages across app
+* Tutorial, help messages across app (e.g. QR direction)
 * Better Polyhedron screens: images, SVG download
 * Improved Polygon + Badge Modals
 * Analytics

@@ -45,15 +45,15 @@ export class AboutView extends Component {
         {this.renderLink('Help and Support')}
         {this.renderLink('Credits')}
         <View style={styles.links}>
-          <TouchableOpacity style={styles.image} onPress={() => { Linking.openURL('https://momath.org') }} activeOpacity={0.5}>
+          <View style={styles.image} onPress={() => { Linking.openURL('https://momath.org') }} activeOpacity={0.5}>
             <Image source={MOMATH}/>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.image} onPress={() => { Linking.openURL('https://mathigon.org') }} activeOpacity={0.5}>
+          </View>
+          <View style={styles.image} onPress={() => { Linking.openURL('https://mathigon.org') }} activeOpacity={0.5}>
             <Image source={MATHIGON}/>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.image} onPress={() => { Linking.openURL('https://imaginary.org') }} activeOpacity={0.5}>
+          </View>
+          <View style={styles.image} onPress={() => { Linking.openURL('https://imaginary.org') }} activeOpacity={0.5}>
             <Image source={IMAGINARY}/>
-          </TouchableOpacity>
+          </View>
         </View>
       </ScrollView>
     </View>);
