@@ -31,7 +31,7 @@ export class PolyhedronView extends Component {
     let text = (missing === 1) ? 'just one more polygon' : missing + ' more polygons';
 
     return <View style={styles.missing}>
-      <Text style={[baseStyles.text, {fontWeight: 'bold'}]}>You need {text}!</Text>
+      <Text style={[baseStyles.text, {fontWeight: 'bold', fontSize: 16}]}>You need {text}!</Text>
     </View>;
   }
 
@@ -84,7 +84,6 @@ const styles = StyleSheet.create({
     marginTop: 14
   },
   missing: {
-    flex: 1,
     backgroundColor: '#c00',
     borderRadius: 3,
     marginLeft: 24,
@@ -96,8 +95,10 @@ const styles = StyleSheet.create({
     marginBottom: 24
   },
   text: {
+    textAlign: 'center',
+    fontSize: 16,
     marginLeft: 24,
     marginRight: 24,
-    marginBottom: 12
+    marginBottom: 16
   },
 });

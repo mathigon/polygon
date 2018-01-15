@@ -15,7 +15,7 @@ import SplashScreen from 'react-native-splash-screen'
 import { HomeView } from './views/home-view'
 import { PolyhedraView } from './views/polyhedra-view'
 import { BadgesView } from './views/badges-view'
-import { AboutView } from './views/about-view'
+import { AboutView, AboutPageView } from './views/about-view'
 import { CameraView } from './views/camera-view'
 import { PowerupView } from './views/powerup-view'
 import { PolyhedronView } from './views/polyhedron-view'
@@ -52,7 +52,8 @@ const Navigator = StackNavigator({
   Main: {screen: Main},
   Camera: {screen: CameraView},
   Polyhedron: {screen: PolyhedronView},
-  Powerup: {screen: PowerupView}
+  Powerup: {screen: PowerupView},
+  AboutPage: {screen: AboutPageView}
   // AR: { screen: ARView }
 }, {initialRouteName: 'Main', headerMode: 'none'});
 
@@ -74,36 +75,36 @@ export default class App extends Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     const promises = Object.keys(this.state).map(key => {
-      AsyncStorage.getItem(key).then(value => {
+      return AsyncStorage.getItem(key).then(value => {
         if (value) this.setState({[key]: JSON.parse(value)});
       })
     });
-    Promise.all(promises).finally(() => SplashScreen.hide());
+    Promise.all(promises).finally(() => setTimeout(() => SplashScreen.hide()));
   }
 
   updateState(key, fn) {
     // TODO Find a nicer way for copying the state object.
     const newVal = JSON.parse(JSON.stringify(this.state[key]));
     fn(newVal);
-    this.setState({[key]: newVal});
     AsyncStorage.setItem(key, JSON.stringify(newVal));
+    return new Promise(fn => this.setState({[key]: newVal}, fn));
   }
 
   // ---------------------------------------------------------------------------
 
-  recomputeState() {
+  async recomputeState() {
     for (let p of polyhedra) {
       if (p.completed(this.state) && !this.state.polyhedra.includes(p.key)) {
-        this.updateState('polyhedra', polyhedra => polyhedra.push(p.key));
+        await this.updateState('polyhedra', polyhedra => polyhedra.push(p.key));
         this.refs.polyhedronModal.queue(p);
       }
     }
 
     for (let b of badges) {
       if (b.validate(this.state) && !this.state.badges.includes(b.key)) {
-        this.updateState('badges', badges => badges.push(b.key));
+        await this.updateState('badges', badges => badges.push(b.key));
         this.refs.badgeModal.queue(b);
       }
     }
@@ -120,15 +121,15 @@ export default class App extends Component {
       return Alert.alert(`You’ve already added this ${polygon.name}!`,
         'Every shape can only be added once. Keep searching for other ones!');
 
-    this.updateState('shapes', shapes => shapes[key].push(id));
+    this.updateState('shapes', shapes => shapes[key].push(id))
+      .then(() => this.recomputeState());
     this.refs.polygonModal.queue(polygon);
-    this.recomputeState();
   }
 
   addPowerup(p) {
     if (this.state.powerups.includes(p.key)) return;
-    this.updateState('powerups', powerups => powerups.push(p.key));
-    this.recomputeState();
+    this.updateState('powerups', powerups => powerups.push(p.key))
+      .then(() => this.recomputeState());
   }
 
   triggerConfetti() {
@@ -154,7 +155,7 @@ export default class App extends Component {
         <PolyhedronModal ref={'polyhedronModal'} app={this}/>
         <PowerupModal ref="powerupModal" app={this}/>
         <BadgeModal ref="badgeModal"/>
-        <Confetti ref="confetti" confettiCount={400} timeout={20} duration={4000}
+        <Confetti ref="confetti" confettiCount={400} timeout={20} duration={3500}
                   colors={['#FBC600', '#0095FF', '#00A826', '#CE001C', '#8600A9', '#FF710E']}/>
       </View>
     );

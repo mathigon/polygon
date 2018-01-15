@@ -5,7 +5,7 @@
 
 
 import React, { Component } from 'react';
-import { Image, ScrollView, TouchableOpacity, Text, View, StyleSheet } from 'react-native';
+import { Image, ScrollView, TouchableOpacity, Text, View, StyleSheet, Platform } from 'react-native';
 import ImageSequence from 'react-native-image-sequence';
 import { NavBar } from '../components/navbar';
 import { baseStyles } from '../styles';
@@ -24,6 +24,7 @@ function renderProgressBar(progress) {
 
 function renderImage(p, progress) {
   if (progress < 1) return <Image source={FALLBACKS[p]} style={[styles.image, {opacity: 0.7}]}/>;
+  if (Platform.OS === 'android') return <Image source={ROTATIONS[p][0]} style={styles.image}/>;
   return <ImageSequence images={ROTATIONS[p]} style={styles.image}/>;
 }
 

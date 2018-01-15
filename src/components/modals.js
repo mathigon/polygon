@@ -21,8 +21,10 @@ let OPEN_MODAL = null;
 function onClose() {
   OPEN_MODAL = null;
   if (QUEUED_MODALS.length) {
-    let next = QUEUED_MODALS.shift();
-    next.modal.open(next.data);
+    setTimeout(() => {
+      let next = QUEUED_MODALS.shift();
+      next.modal.open(next.data);
+    }, 500);
   }
 }
 
