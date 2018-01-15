@@ -14,6 +14,7 @@ const POWERUP_IMAGES = require('../../images/powerups/powerups.js');
 import BADGE_IMAGES from '../../images/badges/badges.js';
 import ROTATIONS from '../../images/rotations.js';
 
+
 const QUEUED_MODALS = [];
 let OPEN_MODAL = null;
 
@@ -30,13 +31,16 @@ class AbstractModal extends Component {
     super();
     this.state = {};
   }
+
   get height() { return 240; }
+
   open(data) {
     this.data = data;
     this.forceUpdate();
     this.refs.me.open();
     OPEN_MODAL = this;
   }
+
   queue(data) {
     if (OPEN_MODAL) {
       QUEUED_MODALS.push({modal: this, data: data});
@@ -44,6 +48,7 @@ class AbstractModal extends Component {
       this.open(data);
     }
   }
+
   render() {
     return (<Modal style={[styles.modal, {height: this.height}]} onClosed={onClose} position={'center'} ref={'me'}>
       <View style={styles.modalBody}>{this.renderBody()}</View>
@@ -63,11 +68,14 @@ export class PolygonModal extends AbstractModal {
 }
 
 export class PolyhedronModal extends AbstractModal {
+
   get height() { return 320; }
+
   open(data) {
     AbstractModal.prototype.open.call(this, data);
     this.props.app.triggerConfetti();
   }
+
   renderBody() {
     if (!this.data) return null;
     return (<View style={styles.modalWrap}>
@@ -78,16 +86,22 @@ export class PolyhedronModal extends AbstractModal {
 }
 
 export class PowerupModal extends AbstractModal {
+
   constructor() {
     super();
     this.state = {value: null, error: false};
   }
+
   get height() { return 370; }
+
   open(data) {
     AbstractModal.prototype.open.call(this, data);
     this.setState({value: null, error: false});
   }
-  change(e) { this.setState({value: e.nativeEvent.text}); }
+
+  change(e) {
+    this.setState({value: e.nativeEvent.text});
+  }
 
   submit() {
     let isNumber = (typeof this.data.answer === 'number');
@@ -95,7 +109,7 @@ export class PowerupModal extends AbstractModal {
 
     if (v === this.data.answer) {
       this.state.error = false;
-      this.props.state.addPowerup(this.data);
+      this.props.app.addPowerup(this.data);
       this.props.app.triggerConfetti();
       this.refs.me.close();
     } else {
@@ -123,7 +137,7 @@ export class PowerupModal extends AbstractModal {
                  style={modalStyles}
                  onChange={this.change.bind(this)}/>
       <Text style={styles.modalError}>{this.state.error ? 'Try again!' : ''}</Text>
-      <Button onPress={this.submit.bind(this)} title="Check" disabled={!this.state.value} color="#007aff"/>
+      <Button onPress={this.submit.bind(this)} title="Submit" disabled={!this.state.value} color="#007aff"/>
     </View>);
   }
 }

@@ -1,6 +1,7 @@
 let shapes = [3, 4, 5, 6, 8, 10];
 
-function count(state) { return shapes.map(s => state.shapes[s].length); }
+function scannedShapes(state) { return shapes.map(s => state.shapes[s].length); }
+function totalShapes(state) { return 0; } // shapes.map(s => state.getShapeCount(s)); }
 function sum(array) { return array.reduce((a, b) => a + b, 0); }
 
 export default [
@@ -9,7 +10,7 @@ export default [
     name: "Pythagoras",
     description: "Scan three polygons.",
     bio: "Pythagoras of Samos was a mathematician and scientist in ancient Greek, famous for the theorem about triangles which is named after him. Little is known about his actual life – some even thought he was a son of the God Apollo. He founded a school of science and philosophy, travelled extensively, and discovered connections between music and mathematics.",
-    validate(state) { return sum(count(state)) >= 9; }
+    validate(state) { return sum(scannedShapes(state)) >= 9; }
   }, {
     key: "fermat",
     name: "Fermat",
@@ -21,7 +22,7 @@ export default [
     name: "Fibonacci",
     description: "Collect 20 polygons.",
     bio: "Leonardo Fibonacci was an Italian mathematician who lived in Pisa during the Middle Ages. He popularised the Arabic numeral system which we all use today, but is best known for the “Fibonacci numbers”, a sequence of numbers that describes the growth of (idealised) rabbit populations and appears in many other places in nature.",
-    validate(state) { return sum(count(state)) >= 20; }
+    validate(state) { return sum(totalShapes(state)) >= 20; }
   }, {
     key: "plato",
     name: "Plato",
@@ -37,13 +38,13 @@ export default [
     name: "Euler",
     description: "Scan one of each different polygon.",
     bio: "Leonhard Euler (1707–1783) is one the greatest mathematicians of all times. His work spans all areas of mathematics, and he wrote 80 volumes of research. Euler was born in Switzerland in 1707. He invented much of the modern mathematical terminology and notation, and made important discoveries in calculus, analysis, graph theory, physics, astronomy and many other topics.",
-    validate(state) { return Math.min(...count(state)) >= 2; }
+    validate(state) { return Math.min(...scannedShapes(state)) >= 2; }
   }, {
     key: "euclid",
     name: "Euclid",
     description: "Collect 20 copies of the same shape.",
     bio: "Euclid of Alexandria was a Greek mathematician and is often called the “father of geometry”. His book  “Elements” contains many important proofs in geometry and number theory, and was the main textbook for teaching mathematics until the 19th century! Very little else is known about his life.",
-    validate(state) { return Math.max(...count(state)) >= 20; }
+    validate(state) { return Math.max(...totalShapes(state)) >= 20; }
   }, {
     key: "gauss",
     name: "Gauss",

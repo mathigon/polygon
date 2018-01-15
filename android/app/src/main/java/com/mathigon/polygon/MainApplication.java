@@ -3,6 +3,8 @@ package com.mathigon.polygon;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import org.devio.rn.splashscreen.SplashScreenReactPackage;
+import com.brentvatne.react.ReactVideoPackage;
 import dk.madslee.imageSequence.RCTImageSequencePackage;
 import com.horcrux.svg.SvgPackage;
 import com.lwansbrough.RCTCamera.RCTCameraPackage;
@@ -26,6 +28,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new SplashScreenReactPackage(),
+            new ReactVideoPackage(),
             new RCTImageSequencePackage(),
             new SvgPackage(),
             new RCTCameraPackage()

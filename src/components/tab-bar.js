@@ -6,7 +6,6 @@
 
 import React, { Component } from 'react';
 import { TouchableWithoutFeedback, Text, View, StyleSheet, Image } from 'react-native';
-// import { BlurView } from 'react-native-blur';
 
 
 const IMAGES = [
@@ -20,12 +19,14 @@ const IMAGES = [
 export class TabBar extends Component {
 
   renderTab(name, page, isTabActive, onPressHandler) {
-    return <TouchableWithoutFeedback style={{flex: 1 }} key={name} onPress={() => onPressHandler(page)}>
-      <View style={[styles.tab, {opacity: isTabActive ? 1 : 0.4}]}>
-        <Image style={styles.tabIcon} source={IMAGES[page]}/>
-        <Text style={styles.tabText}>{name}</Text>
-      </View>
-    </TouchableWithoutFeedback>;
+    return (
+      <TouchableWithoutFeedback style={{flex: 1 }} key={name} onPress={() => onPressHandler(page)}>
+        <View style={[styles.tab, {opacity: isTabActive ? 1 : 0.4}]}>
+          <Image style={styles.tabIcon} source={IMAGES[page]}/>
+          <Text style={styles.tabText}>{name}</Text>
+        </View>
+      </TouchableWithoutFeedback>
+    );
   }
 
   render() {
@@ -38,7 +39,6 @@ export class TabBar extends Component {
       </View>
     );
   }
-
 }
 
 

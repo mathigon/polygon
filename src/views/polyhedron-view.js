@@ -15,15 +15,15 @@ import { PolyhedronNet } from '../components/polyhedron-net.js';
 import BACKGROUND from '../../images/background.jpg';
 import POLYGONS from '../../data/polygons.json';
 import ROTATIONS from '../../images/rotations.js';
-import AR_IMAGE from '../../images/icons/view-in-ar.png';
+// import AR_IMAGE from '../../images/icons/view-in-ar.png';
 
-const supportsAR = false; //(Platform.OS === 'ios') && (+Platform.Version.split('.')[0] >= 11);
+// const supportsAR = false; //(Platform.OS === 'ios') && (+Platform.Version.split('.')[0] >= 11);
 
 
 export class PolyhedronView extends Component {
 
   renderMoreText(polyhedron) {
-    let progress = polyhedron.progress(this.props.screenProps.state);
+    let progress = polyhedron.progress(this.props.screenProps.app.state);
 
     let missing = Math.round((1 - progress) * polyhedron.total);
     if (!missing) return null;
@@ -36,29 +36,27 @@ export class PolyhedronView extends Component {
   }
 
   renderDescription(polyhedron) {
-    let faces = POLYGONS.filter(p => p.key in polyhedron.faces).map(p => {
-      return polyhedron.faces[p.key] + ' ' + p.name + 's';
-    }).join(', ').replace(/,([^,]*)$/, ' and$1');
+    let faces = POLYGONS.filter(p => polyhedron.faces[p.key])
+      .map(p => polyhedron.faces[p.key] + ' ' + p.name + 's')
+      .join(', ').replace(/,([^,]*)$/, ' and$1');
 
     return <Text style={[baseStyles.text, styles.text]}>The {polyhedron.name} consists of {faces}. It has {polyhedron.total} faces, {polyhedron.total + polyhedron.vertices - 2} edges and {polyhedron.vertices} vertices.</Text>;
   }
 
   render() {
     const p = this.props.navigation.state.params.polyhedron;
-    const state = this.props.screenProps.state;
 
-    const ARButton = supportsAR ?
+    /* const ARButton = supportsAR ?
       <TouchableOpacity style={styles.addButton} onPress={() => { this.props.navigation.navigate('AR', {polyhedron: p}) }} activeOpacity={1}>
         <Image source={AR_IMAGE}/>
-      </TouchableOpacity> : null;
+      </TouchableOpacity> : null; */
 
     return (
       <Image source={BACKGROUND} style={baseStyles.dynamicView} resizeMode="cover">
         <NavBar title={p.name} navigation={this.props.navigation}/>
         <ScrollView contentContainerStyle={[baseStyles.view, {alignItems: 'center'}]}>
-          {ARButton}
           <ImageSequence images={ROTATIONS[p.key]} style={styles.rotation}/>
-          <View style={styles.net}><PolyhedronNet p={p} state={state}/></View>
+          <View style={styles.net}><PolyhedronNet p={p} app={this.props.screenProps.app}/></View>
           {this.renderMoreText(p)}
           {this.renderDescription(p)}
           <Text style={[baseStyles.text, styles.text]}>{p.description}</Text>

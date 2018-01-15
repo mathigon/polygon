@@ -21,7 +21,7 @@ export class CameraView extends Component {
 
     Vibration.vibrate();
     this.props.navigation.goBack();
-    this.props.screenProps.state.addShape(result.data);
+    this.props.app.addShape(result.data);
 
     // Hacky way to avoid onBarCodeRead triggering multiple times.
     setTimeout(() => { BLOCKED = false; }, 5000);
@@ -31,7 +31,7 @@ export class CameraView extends Component {
   render() {
     return (<View style={baseStyles.dynamicView}>
       <NavBar title="Camera" navigation={this.props.navigation}/>
-      <Camera onBarCodeRead={x => { this.onBarCodeRead(x); }} style={styles.camera}>
+      <Camera onBarCodeRead={x => this.onBarCodeRead(x)} style={styles.camera}>
         <View style={styles.rectangle}/>
       </Camera>
     </View>)

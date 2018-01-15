@@ -1,5 +1,5 @@
 // -----------------------------------------------------------------------------
-// Polygon App - Powerup View Component
+// Polygon - Powerup View Component
 // @author Philipp Legner
 // -----------------------------------------------------------------------------
 
@@ -8,9 +8,9 @@ import React, { Component } from 'react';
 import { Image, ScrollView, TouchableOpacity, View, StyleSheet } from 'react-native';
 import { NavBar } from '../components/navbar';
 import { baseStyles } from '../styles';
+import { powerups } from '../objects';
 
 import BACKGROUND from '../../images/background.jpg';
-import POWERUPS from '../../data/powerups.js';
 const POWERUP_IMAGES = require('../../images/powerups/powerups.js');
 const POWERUP_IMAGES_BW = require('../../images/powerups-bw/powerups.js');
 const POWERUP_LOCK =   require('../../images/powerups/powerup-lock.png');
@@ -28,18 +28,18 @@ export class PowerupView extends Component {
 
     return (
       <Wrap style={styles.tile} key={p.key} activeOpacity={0.5}
-            onPress={() => { app.openModal('powerupModal', p) }}>
+            onPress={() => { app.refs.powerupModal.queue(p) }}>
         <Image source={image}/>
       </Wrap>);
   }
 
   render() {
-    let powerups = POWERUPS.map((p, i) => this.renderTile(p, i));
+    let rows = powerups.map((p, i) => this.renderTile(p, i));
 
     return (
       <Image source={BACKGROUND} style={baseStyles.dynamicView} resizeMode="cover">
         <NavBar title="Powerups" navigation={this.props.navigation}/>
-        <ScrollView contentContainerStyle={[baseStyles.view, baseStyles.grid]}>{powerups}</ScrollView>
+        <ScrollView contentContainerStyle={[baseStyles.view, baseStyles.grid]}>{rows}</ScrollView>
       </Image>)
   }
 }

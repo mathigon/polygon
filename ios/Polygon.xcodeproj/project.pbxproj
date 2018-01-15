@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -27,6 +26,9 @@
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		F74D3EAC43E947A38EB87B6B /* libRNSVG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 23B8C7934DBA48E3B403638C /* libRNSVG.a */; };
+		332E2440B91B4B7887E1A97F /* libRCTARKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 342DA75958BE4982A5357436 /* libRCTARKit.a */; };
+		FF6DC1A0679B4BA2AC2C9660 /* libRCTVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D607A4ABB404B1DB4E6273E /* libRCTVideo.a */; };
+		931F6288CC004A7D9A89918A /* libSplashScreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1A3B7F27FE64BD19B0D1194 /* libSplashScreen.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -305,6 +307,12 @@
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		CCCFD7D1B8684A039FE5E23E /* RCTCamera.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTCamera.xcodeproj; path = "../node_modules/react-native-camera/ios/RCTCamera.xcodeproj"; sourceTree = "<group>"; };
 		D71C5FA32E9747B79793FECA /* libRCTCamera.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTCamera.a; sourceTree = "<group>"; };
+		27210D62647D4F3789B13C40 /* RCTARKit.xcodeproj */ = {isa = PBXFileReference; name = "RCTARKit.xcodeproj"; path = "../node_modules/react-native-arkit/ios/RCTARKit.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		342DA75958BE4982A5357436 /* libRCTARKit.a */ = {isa = PBXFileReference; name = "libRCTARKit.a"; path = "libRCTARKit.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		1FFE8C850AC94BF0AF063270 /* RCTVideo.xcodeproj */ = {isa = PBXFileReference; name = "RCTVideo.xcodeproj"; path = "../node_modules/react-native-video/ios/RCTVideo.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		3D607A4ABB404B1DB4E6273E /* libRCTVideo.a */ = {isa = PBXFileReference; name = "libRCTVideo.a"; path = "libRCTVideo.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		BB4853A871EE4E5C828860B0 /* SplashScreen.xcodeproj */ = {isa = PBXFileReference; name = "SplashScreen.xcodeproj"; path = "../node_modules/react-native-splash-screen/ios/SplashScreen.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		D1A3B7F27FE64BD19B0D1194 /* libSplashScreen.a */ = {isa = PBXFileReference; name = "libSplashScreen.a"; path = "libSplashScreen.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -328,6 +336,9 @@
 				52B47A2FFCAE4FF1A5F875BF /* libRCTCamera.a in Frameworks */,
 				F74D3EAC43E947A38EB87B6B /* libRNSVG.a in Frameworks */,
 				55FFB2E0A60E4CFD96EBF418 /* libRCTImageSequence.a in Frameworks */,
+				332E2440B91B4B7887E1A97F /* libRCTARKit.a in Frameworks */,
+				FF6DC1A0679B4BA2AC2C9660 /* libRCTVideo.a in Frameworks */,
+				931F6288CC004A7D9A89918A /* libSplashScreen.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,6 +517,9 @@
 				CCCFD7D1B8684A039FE5E23E /* RCTCamera.xcodeproj */,
 				5D27B42C8D0848D9A4EF507E /* RNSVG.xcodeproj */,
 				52FE5D6ECE814A9AB3905B95 /* RCTImageSequence.xcodeproj */,
+				27210D62647D4F3789B13C40 /* RCTARKit.xcodeproj */,
+				1FFE8C850AC94BF0AF063270 /* RCTVideo.xcodeproj */,
+				BB4853A871EE4E5C828860B0 /* SplashScreen.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -983,11 +997,19 @@
 					"$(SRCROOT)/../node_modules/react-native-camera/ios",
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-image-sequence/ios/RCTImageSequence",
+					"$(SRCROOT)/../node_modules/react-native-arkit/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-video/ios",
+					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
 				);
 				INFOPLIST_FILE = Polygon/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Polygon\"",
+					"\"$(SRCROOT)/Polygon\"",
+					"\"$(SRCROOT)/Polygon\"",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1014,11 +1036,19 @@
 					"$(SRCROOT)/../node_modules/react-native-camera/ios",
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-image-sequence/ios/RCTImageSequence",
+					"$(SRCROOT)/../node_modules/react-native-arkit/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-video/ios",
+					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
 				);
 				INFOPLIST_FILE = Polygon/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Polygon\"",
+					"\"$(SRCROOT)/Polygon\"",
+					"\"$(SRCROOT)/Polygon\"",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",

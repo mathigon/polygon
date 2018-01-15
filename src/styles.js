@@ -17,7 +17,6 @@ export const baseStyles = StyleSheet.create({
     height: null
   },
 
-
   // Typography
 
   title: {
@@ -44,7 +43,6 @@ export const baseStyles = StyleSheet.create({
     fontFamily: 'Avenir-Book',
     backgroundColor:'rgba(0,0,0,0)'
   },
-
 
   // Tile Grid
 
@@ -73,7 +71,6 @@ export const baseStyles = StyleSheet.create({
     fontFamily: 'Avenir-Book',
     backgroundColor:'rgba(0,0,0,0)'
   },
-
 
   // List
 

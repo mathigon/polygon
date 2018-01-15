@@ -7,11 +7,10 @@
 import React, { Component } from 'react';
 import { Image, TouchableOpacity, Text, View, StyleSheet, ScrollView } from 'react-native';
 import { baseStyles } from '../styles';
+import { polygons } from '../objects';
 
-const POLYGONS = require('../../data/polygons.json');
 const POLYGON_IMAGES = require('../../images/polygons/polygons.js');
 const LOGO = require('../../images/logo.png');
-
 const ADD_CAMERA = require('../../images/icons/add-camera.png');
 const ADD_POWERUP = require('../../images/icons/add-powerup.png');
 
@@ -19,24 +18,26 @@ const ADD_POWERUP = require('../../images/icons/add-powerup.png');
 export class HomeView extends Component {
 
   render() {
-    let polygons = [];
-    for (let p of POLYGONS) {
-      let top = p.key === 3 ? 34 : p.key === 5 ? 30 : 26;
-      let count = this.props.state.getShapeCount(p.key);
-      polygons.push(<View style={[baseStyles.tileWrap, {height: 110}]} key={p.key}>
+    const state = this.props.app.state;
+
+    const rows = polygons.map(p => {
+      const top = p.key === '3' ? 34 : p.key === '5' ? 30 : 26;
+      const count = p.getCount(state);
+
+      return <View style={[baseStyles.tileWrap, {height: 110}]} key={p.key}>
         <Image source={POLYGON_IMAGES[p.key]}/>
         <Text style={baseStyles.tileLabel}>{p.name}s</Text>
         <Text style={[baseStyles.heading, styles.count, {top}]}>{count}</Text>
-      </View>);
-    }
+      </View>;
+    });
 
     return (<ScrollView contentContainerStyle={{alignItems: 'center', paddingBottom: 80}}>
       <Image style={styles.logo} source={LOGO}/>
-      <View style={baseStyles.grid}>{polygons}</View>
-      <TouchableOpacity style={styles.addButton} onPress={() => { this.props.navigation.navigate('Camera') }} activeOpacity={1}>
+      <View style={baseStyles.grid}>{rows}</View>
+      <TouchableOpacity style={styles.addButton} onPress={() => this.props.navigation.navigate('Camera')} activeOpacity={1}>
         <Image source={ADD_CAMERA}/>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.addButton} onPress={() => { this.props.navigation.navigate('Powerup') }} activeOpacity={1}>
+      <TouchableOpacity style={styles.addButton} onPress={() => this.props.navigation.navigate('Powerup')} activeOpacity={1}>
         <Image source={ADD_POWERUP}/>
       </TouchableOpacity>
     </ScrollView>);

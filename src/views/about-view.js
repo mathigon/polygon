@@ -5,7 +5,7 @@
 
 
 import React, { Component } from 'react';
-import { TouchableOpacity, Text, View, StyleSheet, Image, Linking, ListView, TouchableHighlight, ScrollView } from 'react-native';
+import { Text, View, StyleSheet, Image, Linking, ListView, TouchableHighlight, ScrollView } from 'react-native';
 import { NavBar } from '../components/navbar';
 import { baseStyles } from '../styles';
 
