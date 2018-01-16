@@ -112,7 +112,7 @@ export default class App extends Component {
 
   addShape(shape) {
     let [_, key, id] = (shape || '').split('-');
-    let polygon = polygons.find(p => p.key === +order);
+    let polygon = polygons.find(p => p.key === key);
 
     if (!polygon)
       return Alert.alert('Error', 'This shape couldn’t be added. Please try again!');

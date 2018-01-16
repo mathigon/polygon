@@ -81,11 +81,11 @@ function totalShapes(state) { return polygons.map(p => p.getCount(state)); }
 function sum(array) { return array.reduce((a, b) => a + b, 0); }
 
 const badeValidation = {
-  pythagoras: state => (sum(scannedShapes(state)) >= 9),
+  pythagoras: state => (sum(scannedShapes(state)) >= 3),
   fermat: state => (state.powerups.length >= 3),
   fibonacci: state => (sum(totalShapes(state)) >= 20),
   plato: state => (platonicSolids.every(p => state.polyhedra.includes(p.key))),
-  euler: state => (Math.min(...scannedShapes(state)) >= 2),
+  euler: state => (Math.min(...scannedShapes(state)) >= 1),
   euclid: state => (Math.max(...totalShapes(state)) >= 20),
   gauss: state => (state.powerups.length >= 10),
   archimedes: state => (state.polyhedra.length >= 18)

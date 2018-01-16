@@ -21,7 +21,7 @@ export class CameraView extends Component {
 
     Vibration.vibrate();
     this.props.navigation.goBack();
-    this.props.app.addShape(result.data);
+    this.props.screenProps.app.addShape(result.data);
 
     // Hacky way to avoid onBarCodeRead triggering multiple times.
     setTimeout(() => { BLOCKED = false; }, 5000);
