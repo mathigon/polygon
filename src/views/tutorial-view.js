@@ -33,20 +33,22 @@ export class Tutorial extends Component {
           <Video source={require('../../images/intro-1.mp4')}
                    style={{width: size, height: size}}
                    muted={true}
+                   resizeMode="cover"
                    playWhenInactive={true}
                    repeat={true}/>
           <View level={-20}><Text style={styles.text}>Find hidden polygons and scan them with your phone.</Text></View>
         </View>
         <View style={styles.slide}>
           <Video source={require('../../images/intro-2.mp4')}
-                 style={{width: size, height: size, marginTop: 20, marginBottom: 30}}
+                 style={{width: size, height: size}}
                  muted={true}
+                 resizeMode="cover"
                  playWhenInactive={true}
                  repeat={true}/>
           <View level={-20}><Text style={styles.text}>Once you have enough polygons, they combine to make 3-dimensional polyhedra.</Text></View>
         </View>
         <View style={styles.slide}>
-          <Image source={TUTORIAL} style={{width: 300, height: 320, marginTop: 40, marginBottom: 60}}/>
+          <Image source={TUTORIAL} style={{width: 300, height: 320}}/>
           <View level={-20}><Text style={styles.text}>Complete all polyhedra, solve powerups and get badges!</Text></View>
         </View>
       </AppIntro>
@@ -59,20 +61,21 @@ const styles = StyleSheet.create({
   slide: {
     flex: 1,
     alignItems: 'center',
+    justifyContent: 'center',
     backgroundColor: 'white',
-    padding: 15,
+    paddingBottom: 60
   },
   text: {
     color: '#555',
     textAlign: 'center',
     fontSize: 20,
+    paddingLeft: 20,
+    paddingRight: 20,
     fontWeight: 'bold',
     fontFamily: 'Avenir-Book'
   },
   logo: {
     width: 300,
     height: 70,
-    marginTop: 20,
-    marginBottom: 20
   }
 });

@@ -14,25 +14,6 @@ Install all dependencies of this app by running `npm install` and then start
 the simulator using `npm run ios` or `npm run android`.
 
 
-## TODO list
-
-__Version 2__
-* Corrections: Football, if, check
-* Lock posterior until you’ve got tetrahedron + cube
-* About screen pages
-* AR Kit Improvements (Colours, Loading)
-* Tutorial, help messages across app (e.g. QR direction)
-* Better Polyhedron screens: images, SVG download
-* Improved Polygon + Badge Modals
-* Analytics
-
-__Version 3__
-* Swap shapes with other users
-* Daily top users list
-* Folding animation, Interactive rotations
-* Nicer and customisable QR codes
-
-
 ## 3d Model Generation
 
 * Generate model in Cheeta3D and export to Video

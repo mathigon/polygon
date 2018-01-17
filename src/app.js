@@ -73,6 +73,8 @@ export default class App extends Component {
       badges: [],
       tutorial: {intro: true, camera: true}
     };
+
+    SplashScreen.hide()
   }
 
   componentDidMount() {
